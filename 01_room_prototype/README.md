@@ -20,7 +20,7 @@ npm install
 npm run dev          # http://localhost:5173 — open at 390 px width (device toolbar)
 npm run build        # type-check + production build
 npm test             # 21 unit checks (Vitest)
-npm run test:e2e     # 8 browser checks at 390 px (needs a build; see below)
+npm run test:e2e     # 9 browser checks at 390 px (needs a build; see below)
 npm run check        # build + unit + browser checks
 ```
 
@@ -105,6 +105,13 @@ not type-check. It also had a scenario bug: in `analysis_failed_recoverable` the
 re-injected on every retry, so the "recoverable" failure never recovered. Both were found by
 running the build and a browser check, and both are now covered by tests. Details in
 `AI_USAGE_LOG.md`.
+
+## Language
+
+The UI is available in English and Chinese: **EN / 中文** in the header. The choice is kept
+after a refresh; `#zh` or `#en` in the URL selects it directly. All strings live in
+`src/i18n/strings.ts`; both dictionaries have the same keys (enforced by the type), and browser
+check 8 walks every screen in Chinese and fails on any untranslated key.
 
 ## Project structure
 

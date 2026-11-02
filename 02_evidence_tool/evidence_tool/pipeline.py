@@ -11,6 +11,7 @@ from pathlib import Path
 from . import __version__
 from .cards import build_cards
 from .evidence import classify_sessions, derive_priorities
+from .i18n import localize, set_lang
 from .inputs import load_all
 from .metrics import OVERALL, STAGES, compute
 from .render import render_html, render_markdown
@@ -18,19 +19,26 @@ from .render import render_html, render_markdown
 SEVERITY_ORDER = {"error": 0, "warning": 1, "info": 2}
 
 
-def run(data_dir, config_dir):
+SUFFIX = {"en": "", "zh": ".zh-CN"}
+
+
+def run(data_dir, config_dir, lang="en"):
+    """Full pipeline in one language ("en" or "zh"). Numbers never depend on the language."""
+    set_lang(lang)
     inp = load_all(Path(data_dir), Path(config_dir))
     analysis = compute(inp)
     research = classify_sessions(inp.sessions)
     priorities, rejected, total_participants = derive_priorities(
-        inp.sessions, analysis, inp.priorities_cfg, inp.issues)
+        inp.sessions, analysis, localize(inp.priorities_cfg), inp.issues)
     cards, budget, delivery_ready = build_cards(
-        inp.experiments_cfg, inp.sessions, analysis, priorities, inp.params, inp.issues)
+        localize(inp.experiments_cfg), inp.sessions, analysis, priorities, inp.params, inp.issues,
+        raw_cfg=inp.experiments_cfg)
 
     issues = sorted((i.as_dict() for i in inp.issues),
                     key=lambda i: (SEVERITY_ORDER[i["severity"]], i["code"], i["source"]))
     return {
         "version": __version__,
+        "lang": lang,
         "fingerprints": dict(sorted(inp.fingerprints.items())),
         "params": inp.params,
         "counts": inp.counts,
@@ -92,13 +100,15 @@ def export_payload(result):
 def write_outputs(result, out_dir):
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
+    set_lang(result["lang"])
+    sfx = SUFFIX[result["lang"]]
     dump = lambda obj: json.dumps(to_jsonable(obj), indent=2, ensure_ascii=False) + "\n"
     files = {
-        "report.html": render_html(result),
-        "analysis.json": dump(export_payload(result)),
-        "experiment_cards.json": dump({"input_sha256": result["fingerprints"],
-                                       "budget": result["budget"], "cards": result["cards"]}),
-        "experiment_cards.md": render_markdown(result),
+        f"report{sfx}.html": render_html(result),
+        f"analysis{sfx}.json": dump(export_payload(result)),
+        f"experiment_cards{sfx}.json": dump({"input_sha256": result["fingerprints"],
+                                             "budget": result["budget"], "cards": result["cards"]}),
+        f"experiment_cards{sfx}.md": render_markdown(result),
     }
     for name, text in files.items():
         (out / name).write_text(text, encoding="utf-8")

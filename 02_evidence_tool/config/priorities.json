@@ -1,61 +1,173 @@
 {
-  "_about": "Editable priority codebook. A session supports a candidate when its OBSERVED BEHAVIOR or USER STATEMENT contains one of match_terms (case-insensitive). Researcher inferences are displayed but never counted. Candidates with at least min_participants independent participants are ranked by participants, then by the size of the related event evidence; the top max_priorities are shown. event_evidence is one of: payment_delivery, scan_capture, free_to_paid, none. You can also edit these texts in the report (Edit priorities → Download) and save the file back here.",
+  "_about": "Editable priority codebook. Text fields hold {\"en\": …, \"zh\": …}; a plain string is used for both languages. A session supports a candidate when its OBSERVED BEHAVIOR or USER STATEMENT contains one of match_terms (case-insensitive). Researcher inferences are displayed but never counted. Candidates with at least min_participants independent participants are ranked by participants, then by the size of the related event evidence; the top max_priorities are shown. event_evidence is one of: payment_delivery, scan_capture, free_to_paid, none. You can also edit these texts in the report (Edit priorities → Export) and save the file back here.",
   "max_priorities": 3,
   "min_participants": 2,
   "candidates": [
     {
       "id": "PR-DELIVERY",
-      "title": "Make paid report delivery recoverable and visible",
-      "user_problem": "After paying, people cannot tell whether payment or the report is still in progress. Some abandon in pending, some wait minutes and think the app crashed, and some ask for their money back.",
-      "match_terms": ["pending", "stuck", "delivery", "took 5 mins", "crashed", "refund", "money back"],
+      "title": {
+        "en": "Make paid report delivery recoverable and visible",
+        "zh": "让已付费报告的交付可恢复、可见"
+      },
+      "user_problem": {
+        "en": "After paying, people cannot tell whether payment or the report is still in progress. Some abandon in pending, some wait minutes and think the app crashed, and some ask for their money back.",
+        "zh": "付款后，用户无法判断是付款还是报告仍在处理中。有人在 pending 状态下放弃，有人等了几分钟以为应用崩溃了，还有人要求退款。"
+      },
+      "match_terms": [
+        "pending",
+        "stuck",
+        "delivery",
+        "took 5 mins",
+        "crashed",
+        "refund",
+        "money back"
+      ],
       "event_evidence": "payment_delivery",
-      "proposed_change": "One purchase-status screen driven by the transaction state (pending → verified → preparing report → delivered / failed). Automatic delivery retry plus a 'Restore my report' action keyed on the transaction ID, so a retry can never create a second purchase. Pending purchases show what is happening and when they expire.",
-      "acceptance_pass": "At cutoff in the next cohort: 0 verified payments without a delivered report, 0 purchases still pending, and no user with two charges for one report.",
-      "acceptance_fail": "Any verified payment undelivered at cutoff, any purchase left pending without a visible state, or any duplicate charge after a retry.",
-      "analyst_note": "S18 is internally inconsistent (observed: refund 'took too long'; said: 'processed smoothly'), so it is weak evidence about refund speed."
+      "proposed_change": {
+        "en": "One purchase-status screen driven by the transaction state (pending → verified → preparing report → delivered / failed). Automatic delivery retry plus a 'Restore my report' action keyed on the transaction ID, so a retry can never create a second purchase. Pending purchases show what is happening and when they expire.",
+        "zh": "由交易状态驱动的单一购买状态页（pending → 已验证 → 报告生成中 → 已交付 / 失败）。自动重试交付，并提供以交易 ID 为键的“恢复我的报告”操作，因此重试永远不会产生第二笔购买。处于 pending 的购买会显示当前进展和过期时间。"
+      },
+      "acceptance_pass": {
+        "en": "At cutoff in the next cohort: 0 verified payments without a delivered report, 0 purchases still pending, and no user with two charges for one report.",
+        "zh": "下一批用户在截止时：0 笔已验证但未交付报告的付款，0 笔仍处于 pending 的购买，且没有用户为同一份报告被扣费两次。"
+      },
+      "acceptance_fail": {
+        "en": "Any verified payment undelivered at cutoff, any purchase left pending without a visible state, or any duplicate charge after a retry.",
+        "zh": "截止时仍有已验证但未交付的付款，或有购买停留在 pending 且无可见状态，或重试后出现重复扣费。"
+      },
+      "analyst_note": {
+        "en": "S18 is internally inconsistent (observed: refund 'took too long'; said: 'processed smoothly'), so it is weak evidence about refund speed.",
+        "zh": "S18 内部矛盾（观察：退款“耗时太长”；陈述：“处理顺利”），因此作为退款速度的证据较弱。"
+      }
     },
     {
       "id": "PR-SCAN-ENTRY",
-      "title": "Check device, permission and light before the scan, not during it",
-      "user_problem": "People hit a dead end at the start: an unsupported phone, a camera-permission prompt before they see any value, or a scan that fails twice in low light.",
-      "match_terms": ["lidar", "not supported", "isn't supported", "camera permission", "camera access", "low light", "lighting"],
+      "title": {
+        "en": "Check device, permission and light before the scan, not during it",
+        "zh": "在扫描之前（而不是扫描过程中）检查设备、权限和光线"
+      },
+      "user_problem": {
+        "en": "People hit a dead end at the start: an unsupported phone, a camera-permission prompt before they see any value, or a scan that fails twice in low light.",
+        "zh": "用户一开始就走进死胡同：手机不受支持、还没看到任何价值就被要求授予摄像头权限，或在弱光下扫描连续失败两次。"
+      },
+      "match_terms": [
+        "lidar",
+        "not supported",
+        "isn't supported",
+        "camera permission",
+        "camera access",
+        "low light",
+        "lighting"
+      ],
       "event_evidence": "scan_capture",
-      "proposed_change": "Detect LiDAR support on first open and explain the requirement before onboarding; ask for camera permission only when the user taps 'Start scan' after seeing a sample result; detect low light before capture and show one concrete fix (turn on the main light, hold for 3 seconds).",
-      "acceptance_pass": "In the next cohort the qualified → qualified scan rate is at or above the current baseline, and no research participant is blocked by device support, permission timing or light without a clear next step.",
-      "acceptance_fail": "Qualified → qualified scan rate falls below the current baseline, or a participant again reaches an unexplained device or permission dead end.",
-      "analyst_note": "P02 reports an unsupported phone in S02 but receives a report in the re-test S14; the device or build may have changed between sessions."
+      "proposed_change": {
+        "en": "Detect LiDAR support on first open and explain the requirement before onboarding; ask for camera permission only when the user taps 'Start scan' after seeing a sample result; detect low light before capture and show one concrete fix (turn on the main light, hold for 3 seconds).",
+        "zh": "首次打开时检测 LiDAR 支持，并在引导前说明设备要求；仅在用户看过示例结果并点击“开始扫描”后才请求摄像头权限；采集前检测弱光，并给出一条具体的解决办法（打开主灯，保持 3 秒）。"
+      },
+      "acceptance_pass": {
+        "en": "In the next cohort the qualified → qualified scan rate is at or above the current baseline, and no research participant is blocked by device support, permission timing or light without a clear next step.",
+        "zh": "下一批用户中，qualified → qualified scan 的转化率不低于当前基线，且没有研究参与者因设备支持、权限时机或光线问题而卡住却得不到明确的下一步。"
+      },
+      "acceptance_fail": {
+        "en": "Qualified → qualified scan rate falls below the current baseline, or a participant again reaches an unexplained device or permission dead end.",
+        "zh": "qualified → qualified scan 的转化率低于当前基线，或再次有参与者遇到无法解释的设备或权限死胡同。"
+      },
+      "analyst_note": {
+        "en": "P02 reports an unsupported phone in S02 but receives a report in the re-test S14; the device or build may have changed between sessions.",
+        "zh": "P02 在 S02 中报告手机不受支持，但在复测 S14 中收到了报告；两次会话之间设备或版本可能已经变化。"
+      }
     },
     {
       "id": "PR-PAYWALL-CLARITY",
-      "title": "Show what the paid guide contains, and its terms, before asking for payment",
-      "user_problem": "People are asked to pay before they understand what the full report adds over the free suggestion, and one paid without understanding the subscription terms.",
-      "match_terms": ["paywall", "pay before", "full report", "subscription terms", "what i expected", "isn't what i expected"],
+      "title": {
+        "en": "Show what the paid guide contains, and its terms, before asking for payment",
+        "zh": "在要求付款之前，展示付费指南包含的内容及其条款"
+      },
+      "user_problem": {
+        "en": "People are asked to pay before they understand what the full report adds over the free suggestion, and one paid without understanding the subscription terms.",
+        "zh": "用户在还不清楚完整报告比免费建议多了什么时就被要求付款，还有一人在不了解订阅条款的情况下付了款。"
+      },
+      "match_terms": [
+        "paywall",
+        "pay before",
+        "full report",
+        "subscription terms",
+        "what i expected",
+        "isn't what i expected"
+      ],
       "event_evidence": "free_to_paid",
-      "proposed_change": "Paywall shows one real, partly locked section of the user's own guide, a one-line list of what unlocks, and the plain-language price and renewal terms next to the button.",
-      "acceptance_pass": "Free suggestion → verified payer rate is not lower than the current baseline, and the share of verified purchases fully refunded is lower than the current baseline.",
-      "acceptance_fail": "Payer rate drops below baseline, or the refund share does not fall.",
+      "proposed_change": {
+        "en": "Paywall shows one real, partly locked section of the user's own guide, a one-line list of what unlocks, and the plain-language price and renewal terms next to the button.",
+        "zh": "付费墙展示用户自己指南中真实的一部分（部分锁定）、一行可解锁内容清单，并在按钮旁用通俗语言写明价格和续订条款。"
+      },
+      "acceptance_pass": {
+        "en": "Free suggestion → verified payer rate is not lower than the current baseline, and the share of verified purchases fully refunded is lower than the current baseline.",
+        "zh": "免费建议 → 已验证付款用户的转化率不低于当前基线，且全额退款占已验证购买的比例低于当前基线。"
+      },
+      "acceptance_fail": {
+        "en": "Payer rate drops below baseline, or the refund share does not fall.",
+        "zh": "付款转化率跌破基线，或退款占比没有下降。"
+      },
       "analyst_note": ""
     },
     {
       "id": "PR-ACTIONABLE",
-      "title": "Make recommendations specific and explain the reasoning",
-      "user_problem": "Recommendations read as generic, and the mix of feng shui and environmental psychology confuses some people.",
-      "match_terms": ["generic", "unclear furniture", "confused", "superstition"],
+      "title": {
+        "en": "Make recommendations specific and explain the reasoning",
+        "zh": "让建议更具体，并说明理由"
+      },
+      "user_problem": {
+        "en": "Recommendations read as generic, and the mix of feng shui and environmental psychology confuses some people.",
+        "zh": "建议读起来很笼统，风水与环境心理学的混合也让一些人感到困惑。"
+      },
+      "match_terms": [
+        "generic",
+        "unclear furniture",
+        "confused",
+        "superstition"
+      ],
       "event_evidence": "none",
-      "proposed_change": "Each recommendation names the object, the move and the reason in environmental-psychology terms, using the user's own scan.",
-      "acceptance_pass": "In re-tests, no participant describes the recommendations as generic or confusing.",
-      "acceptance_fail": "A participant again describes them as generic or confusing.",
+      "proposed_change": {
+        "en": "Each recommendation names the object, the move and the reason in environmental-psychology terms, using the user's own scan.",
+        "zh": "每条建议都基于用户自己的扫描，写明对象、动作，以及用环境心理学表述的理由。"
+      },
+      "acceptance_pass": {
+        "en": "In re-tests, no participant describes the recommendations as generic or confusing.",
+        "zh": "复测中没有参与者认为建议笼统或令人困惑。"
+      },
+      "acceptance_fail": {
+        "en": "A participant again describes them as generic or confusing.",
+        "zh": "再次有参与者认为建议笼统或令人困惑。"
+      },
       "analyst_note": ""
     },
     {
       "id": "PR-MULTI-ROOM",
-      "title": "Scan several rooms in one pass",
-      "user_problem": "A participant wanted to cover several rooms in a single scan.",
-      "match_terms": ["multiple rooms", "multi-room"],
+      "title": {
+        "en": "Scan several rooms in one pass",
+        "zh": "一次扫描多个房间"
+      },
+      "user_problem": {
+        "en": "A participant wanted to cover several rooms in a single scan.",
+        "zh": "有一位参与者希望一次扫描覆盖多个房间。"
+      },
+      "match_terms": [
+        "multiple rooms",
+        "multi-room"
+      ],
       "event_evidence": "none",
-      "proposed_change": "Multi-room capture in one session.",
-      "acceptance_pass": "Participants complete a two-room scan without restarting.",
-      "acceptance_fail": "Participants restart the scan for the second room.",
+      "proposed_change": {
+        "en": "Multi-room capture in one session.",
+        "zh": "在一次会话中采集多个房间。"
+      },
+      "acceptance_pass": {
+        "en": "Participants complete a two-room scan without restarting.",
+        "zh": "参与者无需重新开始即可完成两个房间的扫描。"
+      },
+      "acceptance_fail": {
+        "en": "Participants restart the scan for the second room.",
+        "zh": "参与者需要为第二个房间重新开始扫描。"
+      },
       "analyst_note": ""
     }
   ]

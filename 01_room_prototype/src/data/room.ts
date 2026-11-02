@@ -68,7 +68,7 @@ export function buildAdjustmentPlan(constraintIds: string[]) {
   );
   return {
     steps: ORDER.filter((id) => !fixed.has(id)).map((id) => MOVES[id]),
-    fixed: BEDROOM.items.filter((i) => fixed.has(i.id)).map((i) => i.label),
+    fixed: BEDROOM.items.filter((i) => fixed.has(i.id)).map((i) => i.id), // item ids; the UI translates them
   };
 }
 

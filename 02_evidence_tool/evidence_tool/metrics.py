@@ -14,6 +14,7 @@ from __future__ import annotations
 from collections import defaultdict
 from decimal import Decimal
 
+from .i18n import join, t as t_  # `t` is used for transactions below
 from .inputs import Issue
 
 STAGES = [
@@ -42,14 +43,14 @@ def attribute_users(events, issues):
         anchor = opens[0] if opens else evs[0]
         if not opens:
             issues.append(Issue("warning", "user.no_first_open",
-                                f"{uid} has no first_open; attributed to the channel of its earliest event "
-                                f"({anchor['event_id']}).", f"event_log.csv:{anchor['line']}"))
+                                t_("issue.user.no_first_open", uid=uid, eid=anchor['event_id']),
+                                f"event_log.csv:{anchor['line']}"))
         channel_of[uid] = anchor["channel_attribution"]
         others = sorted({e["channel_attribution"] for e in evs} - {channel_of[uid]})
         if others:
             issues.append(Issue("info", "user.channel_conflict",
-                                f"{uid} also has events tagged {', '.join(others)}; first-touch "
-                                f"{channel_of[uid]} used.", "event_log.csv"))
+                                t_("issue.user.channel_conflict", uid=uid, others=join(others), ch=channel_of[uid]),
+                                "event_log.csv"))
     return channel_of, by_user
 
 
@@ -65,8 +66,8 @@ def build_transactions(events, cutoff, issues):
         })
         if e["user_id"] != t["user_id"]:
             issues.append(Issue("error", "tx.user_mismatch",
-                                f"{e['transaction_id']}: event {e['event_id']} belongs to {e['user_id']}, "
-                                f"transaction belongs to {t['user_id']}; event ignored.",
+                                t_("issue.tx.user_mismatch", tx=e['transaction_id'], eid=e['event_id'],
+                                  uid=e['user_id'], owner=t['user_id']),
                                 f"event_log.csv:{e['line']}"))
             continue
         t[e["type"]].append(e)
@@ -83,17 +84,17 @@ def build_transactions(events, cutoff, issues):
         t["event_ids"] = [e["event_id"] for k in ("purchase", "verification", "delivery", "refund") for e in t[k]]
         notes = []
         if len(t["verification"]) > 1:
-            notes.append(f"{len(t['verification'])} verification events "
-                         f"({', '.join(e['event_id'] for e in t['verification'])}) — counted as one sale")
+            notes.append(t_("note.dup_verification", n=len(t['verification']),
+                            ids=join(e['event_id'] for e in t['verification'])))
         if t["verification"] and not t["purchase"]:
-            notes.append("verified without a purchase event")
+            notes.append(t_("note.no_purchase"))
         if dlv and not t["verified"]:
-            notes.append("delivery without verified payment — not counted as delivered")
+            notes.append(t_("note.delivery_unverified"))
         if ref and not t["verified"]:
-            notes.append("refund without verified payment — ignored")
+            notes.append(t_("note.refund_unverified"))
         late = [e["event_id"] for k in ("verification", "delivery", "refund") for e in t[k] if e["ts"] > cutoff]
         if late:
-            notes.append(f"events after cutoff ignored: {', '.join(late)}")
+            notes.append(t_("note.late", ids=join(late)))
         t["notes"] = notes
         t["status"] = ("refunded" if t["refunded"] else "delivered" if t["delivered"]
                        else "paid, not delivered" if t["verified"] else "pending" if t["pending"] else "unknown")
@@ -118,7 +119,7 @@ def compute(inp):
     for ch in sorted(set(channel_of.values()) - set(channels)):
         channels.append(ch)
         issues.append(Issue("warning", "channel.no_cost_row",
-                            f"{ch} appears in events but not in channel_data.csv; its cost is unknown.",
+                            t_("issue.channel.no_cost_row", ch=ch),
                             "channel_data.csv"))
 
     # ── user stages ──
@@ -132,15 +133,15 @@ def compute(inp):
                 reached[ch][stage].add(uid)
             elif stage in types:
                 issues.append(Issue("warning", "user.out_of_sequence",
-                                    f"{uid} has '{stage}' without every earlier stage; not counted at "
-                                    f"'{stage}'.", "event_log.csv"))
+                                    t_("issue.user.out_of_sequence", uid=uid, stage=t_(f"stage.{stage}")),
+                                    "event_log.csv"))
         user_txs = sorted((t for t in txs.values() if t["user_id"] == uid and t["verified"]),
                           key=lambda t: (t["verified_at"], t["id"]))
         if user_txs:
             reached[ch]["first_time_payer"].add(uid)
             if "free_suggestion_viewed" not in types:
                 issues.append(Issue("info", "user.paid_without_free_view",
-                                    f"{uid} paid without a free suggestion viewed event.", "event_log.csv"))
+                                    t_("issue.user.paid_without_free_view", uid=uid), "event_log.csv"))
             if any(t["delivered"] for t in user_txs):
                 reached[ch]["delivered_guide"].add(uid)
             if any(t["delivered"] and not t["refunded"] for t in user_txs):
@@ -194,7 +195,7 @@ def compute(inp):
         hours = p["hours"].get(ch)
         if hours is None and ch in inp.channels:
             issues.append(Issue("warning", "params.hours_missing",
-                                f"No production hours for {ch} in params.json; labor treated as $0.",
+                                t_("issue.params.hours_missing", ch=ch),
                                 "params.json"))
         labor = (hours or ZERO) * p["labor_rate"]
         f, m = funnel[ch], money[ch]

@@ -2,10 +2,10 @@
   "input_sha256": {
     "channel_data.csv": "736dcc856dc1a23e73c463662e489e7687efadd8ade3e5a3ea66cd5554112b05",
     "event_log.csv": "18138dda48799cfc7391af08cbba0e62a1af2830066fe52aa2dd089f217bbdfe",
-    "experiments.json": "5007cd79a9091c95bc303ba705f8296991f06aa4482fae9766ac8a96c421095e",
+    "experiments.json": "3241447d373e7e3a9d843cc22676c5c9afdcac98070f397d0d4ada3b15542cf7",
     "feedback_sessions.csv": "c0b179349880661ea5b0d22e4ec08340818762e07e263d9ac5705d6505a40d7b",
-    "params.json": "842f4bebf9bd8c228de242cecaca4248d8d0e5c11ee8f0a2a648ffb8fdc4962c",
-    "priorities.json": "42ad9a4ced73d9a8ecf7398a88ce259c1f1633edda04a9c0e7f08d42a47a6bf9"
+    "params.json": "677e842d242451f49c3858ab17ed54b763329f273becb35f8e5b9276d2056db2",
+    "priorities.json": "6c96cc5a3182ae0b3b15135469ce859e251cc16c32486eafbd72754e4e8cf4c4"
   },
   "budget": {
     "total": 900.0,
@@ -20,6 +20,7 @@
       "type_label": "ASO / store value expression",
       "title": "Store page that shows the before/after layout and states the LiDAR requirement",
       "status": "BLOCKED",
+      "status_label": "BLOCKED",
       "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
       "approved_for_launch": false,
       "owner": "Growth PM, ASO (name to be assigned before launch)",
@@ -282,7 +283,21 @@
           "multiple rooms",
           "whole home",
           "scientifically proven",
-          "100%"
+          "100%",
+          "保证",
+          "必然提升",
+          "爆款",
+          "病毒式",
+          "百万播放",
+          "搜索量",
+          "第一名",
+          "所有 iphone",
+          "所有iphone",
+          "任何 iphone",
+          "任何iphone",
+          "多房间",
+          "全屋",
+          "科学证明"
         ]
       },
       "keyword_intent_groups": [
@@ -373,6 +388,7 @@
       "type_label": "Short content · 3-shot script",
       "title": "3-shot 'desk facing the door' fix with a KOC creator",
       "status": "BLOCKED",
+      "status_label": "BLOCKED",
       "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
       "approved_for_launch": false,
       "owner": "Content lead, KOC program (name to be assigned before launch)",
@@ -652,7 +668,21 @@
           "multiple rooms",
           "whole home",
           "scientifically proven",
-          "100%"
+          "100%",
+          "保证",
+          "必然提升",
+          "爆款",
+          "病毒式",
+          "百万播放",
+          "搜索量",
+          "第一名",
+          "所有 iphone",
+          "所有iphone",
+          "任何 iphone",
+          "任何iphone",
+          "多房间",
+          "全屋",
+          "科学证明"
         ]
       },
       "script": [

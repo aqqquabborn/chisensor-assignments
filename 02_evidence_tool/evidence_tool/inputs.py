@@ -16,6 +16,8 @@ from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
+from .i18n import join, t
+
 EVENT_COLUMNS = ["event_id", "user_id", "transaction_id", "timestamp", "event_type", "channel_attribution"]
 CHANNEL_COLUMNS = ["channel_name", "cash_costs", "first_touch_attribution"]
 FEEDBACK_COLUMNS = ["session_id", "participant_id", "observed_behavior", "user_statements", "researcher_inferences"]
@@ -119,14 +121,14 @@ def load_events(path: Path, issues: list, counts: dict, fingerprints: dict):
         src = f"{path.name}:{line}"
         if len(row) != len(header):
             c["invalid"] += 1
-            issues.append(Issue("error", "event.bad_row", f"Expected {len(header)} fields, got {len(row)}; row skipped.", src))
+            issues.append(Issue("error", "event.bad_row", t("issue.event.bad_row", expected=len(header), got=len(row)), src))
             continue
         rec = {k: row[i].strip() for k, i in idx.items()}
 
         eid = rec["event_id"]
         if not eid:
             c["invalid"] += 1
-            issues.append(Issue("error", "event.missing_id", "event_id is empty; row skipped.", src))
+            issues.append(Issue("error", "event.missing_id", t("issue.event.missing_id"), src))
             continue
         fingerprint = tuple(rec[k] for k in EVENT_COLUMNS)
         if eid in seen:
@@ -136,26 +138,26 @@ def load_events(path: Path, issues: list, counts: dict, fingerprints: dict):
             else:
                 c["conflicting_duplicates"] += 1
                 issues.append(Issue("error", "event.duplicate_conflict",
-                                    f"{eid} reused with different content; first occurrence kept.", src))
+                                    t("issue.event.duplicate_conflict", eid=eid), src))
             continue
         seen[eid] = fingerprint
 
         problems = []
         if not rec["user_id"]:
-            problems.append("user_id is empty")
+            problems.append(t("prob.user"))
         ts = parse_timestamp(rec["timestamp"]) if rec["timestamp"] else None
         if ts is None:
-            problems.append(f"timestamp '{rec['timestamp']}' is not a valid date-time")
+            problems.append(t("prob.timestamp", v=rec['timestamp']))
         etype = EVENT_TYPE_ALIASES.get(rec["event_type"].lower().replace("_", " ").strip())
         if etype is None:
-            problems.append(f"unknown event_type '{rec['event_type']}'")
+            problems.append(t("prob.type", v=rec['event_type']))
         if not rec["channel_attribution"]:
-            problems.append("channel_attribution is empty")
+            problems.append(t("prob.channel"))
         if etype in PAYMENT_TYPES and not rec["transaction_id"]:
-            problems.append(f"{etype} event has no transaction_id")
+            problems.append(t("prob.tx", etype=etype))
         if problems:
             c["invalid"] += 1
-            issues.append(Issue("error", "event.invalid", f"{eid}: " + "; ".join(problems) + "; row skipped.", src))
+            issues.append(Issue("error", "event.invalid", t("issue.event.invalid", eid=eid, problems=t("sep.semi").join(problems)), src))
             continue
 
         rec.update({"type": etype, "ts": ts, "line": line})
@@ -164,7 +166,7 @@ def load_events(path: Path, issues: list, counts: dict, fingerprints: dict):
     c["valid"] = len(events)
     if duplicate_ids:
         issues.append(Issue("info", "event.exact_duplicates_removed",
-                            f"{len(duplicate_ids)} exact duplicate event rows removed: {', '.join(duplicate_ids)}.",
+                            t("issue.event.exact_duplicates_removed", n=len(duplicate_ids), ids=join(duplicate_ids)),
                             path.name))
     counts[path.name] = c
     return events
@@ -190,11 +192,11 @@ def load_channels(path: Path, issues: list, counts: dict, fingerprints: dict):
         name = rec["channel_name"]
         if not name:
             c["invalid"] += 1
-            issues.append(Issue("error", "channel.missing_name", "channel_name is empty; row skipped.", src))
+            issues.append(Issue("error", "channel.missing_name", t("issue.channel.missing_name"), src))
             continue
         if name in channels:
             c["invalid"] += 1
-            issues.append(Issue("error", "channel.duplicate", f"{name} listed twice; first row kept.", src))
+            issues.append(Issue("error", "channel.duplicate", t("issue.channel.duplicate", name=name), src))
             continue
         cash = None
         try:
@@ -204,12 +206,10 @@ def load_channels(path: Path, issues: list, counts: dict, fingerprints: dict):
         except (InvalidOperation, ValueError):
             cash = None
             issues.append(Issue("error", "channel.invalid_cost",
-                                f"{name}: cash_costs '{rec['cash_costs']}' is not a non-negative number; "
-                                f"CAC for this channel shown as N/A.", src))
+                                t("issue.channel.invalid_cost", name=name, v=rec['cash_costs']), src))
         if rec["first_touch_attribution"] and rec["first_touch_attribution"] != name:
             issues.append(Issue("warning", "channel.attribution_mismatch",
-                                f"{name}: first_touch_attribution is '{rec['first_touch_attribution']}'; "
-                                f"events are matched on channel_name.", src))
+                                t("issue.channel.attribution_mismatch", name=name, v=rec['first_touch_attribution']), src))
         channels[name] = {"cash": cash, "line": line}
         order.append(name)
     c["valid"] = len(channels)
@@ -251,8 +251,7 @@ def load_feedback(path: Path, issues: list, counts: dict, fingerprints: dict):
             if not m:
                 c["invalid"] += 1
                 issues.append(Issue("error", "feedback.bad_row",
-                                    f"Expected {len(header)} fields, got {len(row)} and the row could not be "
-                                    f"repaired; quote free-text fields that contain commas.", src))
+                                    t("issue.feedback.bad_row", expected=len(header), got=len(row)), src))
                 continue
             rec = dict(zip(FEEDBACK_COLUMNS, (g.strip().replace('""', '"') for g in m.groups())))
             c["repaired"] += 1
@@ -263,32 +262,28 @@ def load_feedback(path: Path, issues: list, counts: dict, fingerprints: dict):
         missing = [k for k in ("session_id", "participant_id") if not rec[k]]
         if missing:
             c["invalid"] += 1
-            issues.append(Issue("error", "feedback.missing_id", f"{', '.join(missing)} empty; row skipped.", src))
+            issues.append(Issue("error", "feedback.missing_id", t("issue.feedback.missing_id", fields=join(missing)), src))
             continue
         if not rec["observed_behavior"] and not rec["user_statements"]:
             issues.append(Issue("warning", "feedback.no_evidence",
-                                f"{rec['session_id']}: no observed behavior and no user statement; "
-                                f"it cannot support a priority.", src))
+                                t("issue.feedback.no_evidence", sid=rec['session_id']), src))
         key = rec["session_id"]
         sig = tuple(rec[k] for k in FEEDBACK_COLUMNS)
         if key in seen:
             c["duplicates"] += 1
             sev = "info" if seen[key] == sig else "error"
             issues.append(Issue(sev, "feedback.duplicate_session",
-                                f"{key} appears again; first occurrence kept.", src))
+                                t("issue.feedback.duplicate_session", sid=key), src))
             continue
         seen[key] = sig
         sessions.append(rec)
 
     if repaired:
         issues.append(Issue("warning", "feedback.repaired_rows",
-                            f"{len(repaired)} rows had unquoted commas in free text and were repaired "
-                            f"around the quoted user statement: {', '.join(repaired)}. Please quote these "
-                            f"fields at the source.", path.name))
+                            t("issue.feedback.repaired_rows", n=len(repaired), ids=join(repaired)), path.name))
     if "product_version" not in header:
         issues.append(Issue("info", "feedback.no_product_version",
-                            "No product_version column: first observations and re-tests cannot be tied to a "
-                            "build, so re-test results may reflect a different version.", path.name))
+                            t("issue.feedback.no_product_version"), path.name))
     c["valid"] = len(sessions)
     counts[path.name] = c
     return sessions
@@ -343,8 +338,8 @@ def validate_params(raw: dict, issues: list):
                 raise InvalidOperation
             p["hours"][k] = d
         except (InvalidOperation, ValueError):
-            issues.append(Issue("error", "params.invalid_hours", f"Production hours for {k} = {v!r} is invalid; "
-                                f"treated as missing.", "params.json"))
+            issues.append(Issue("error", "params.invalid_hours", t("issue.params.invalid_hours", ch=k, v=repr(v)),
+                                "params.json"))
 
     cutoff = raw.get("cutoff")
     p["cutoff"] = None
@@ -357,7 +352,7 @@ def validate_params(raw: dict, issues: list):
     flag = readiness.get("commercial_delivery_ready")
     if not isinstance(flag, bool):
         issues.append(Issue("error", "params.readiness_missing",
-                            "readiness.commercial_delivery_ready must be true or false; treated as false.",
+                            t("issue.params.readiness_missing"),
                             "params.json"))
         flag = False
     p["commercial_delivery_ready"] = flag

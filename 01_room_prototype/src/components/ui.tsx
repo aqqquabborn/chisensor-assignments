@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
+import { useLang } from '../i18n/lang';
 
 /** Every simulated behaviour carries this label (brief: scan, analysis and purchase must be marked as simulated). */
 export function Sim({ children }: { children: ReactNode }) {
+  const { t } = useLang();
   return (
     <div role="note" style={{
       display: 'flex', gap: 6, alignItems: 'flex-start', padding: '6px 10px', margin: '0 0 12px',
       background: '#eef2ff', color: '#3730a3', borderRadius: 6, fontSize: 12, lineHeight: 1.4,
     }}>
-      <strong style={{ flex: 'none' }}>SIMULATED</strong><span>{children}</span>
+      <strong style={{ flex: 'none' }}>{t('sim')}</strong><span>{children}</span>
     </div>
   );
 }

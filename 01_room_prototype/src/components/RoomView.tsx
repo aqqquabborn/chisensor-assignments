@@ -1,4 +1,6 @@
 import { type RoomData, type RoomItem, type FreeAction } from '../core/types';
+import { useLang } from '../i18n/lang';
+import type { Key } from '../i18n/strings';
 
 interface Props {
   room: RoomData;
@@ -18,6 +20,7 @@ function itemColor(item: RoomItem, isTarget: boolean, applied: boolean): string 
 }
 
 export default function RoomView({ room, freeAction, applied, showPaths = true }: Props) {
+  const { t } = useLang();
   const W = room.width * SCALE + PAD * 2;
   const H = room.height * SCALE + PAD * 2;
 
@@ -41,7 +44,7 @@ export default function RoomView({ room, freeAction, applied, showPaths = true }
         width={6} height={30}
         fill="#f59e0b" rx={2}
       />
-      <text x={s(room.door.x) + 8} y={s(room.door.y) + 18} fontSize={9} fill="#92400e">Door</text>
+      <text x={s(room.door.x) + 8} y={s(room.door.y) + 18} fontSize={9} fill="#92400e">{t('room.door')}</text>
 
       {/* Paths */}
       {showPaths && (
@@ -81,7 +84,7 @@ export default function RoomView({ room, freeAction, applied, showPaths = true }
               textAnchor="middle" fontSize={11} fill={itemColor(item, isTarget, applied)}
               fontWeight={600}
             >
-              {item.label}
+              {t(`item.${item.id}` as Key)}
             </text>
           </g>
         );
@@ -91,9 +94,9 @@ export default function RoomView({ room, freeAction, applied, showPaths = true }
       {showPaths && (
         <g transform={`translate(${PAD + 4}, ${H - 26})`}>
           <line x1={0} y1={0} x2={16} y2={0} stroke="#10b981" strokeWidth={2} strokeDasharray="4 2" />
-          <text x={20} y={4} fontSize={8} fill="#64748b">Entry</text>
+          <text x={20} y={4} fontSize={8} fill="#64748b">{t('room.entry')}</text>
           <line x1={56} y1={0} x2={72} y2={0} stroke="#8b5cf6" strokeWidth={2} strokeDasharray="4 2" />
-          <text x={76} y={4} fontSize={8} fill="#64748b">Bedside</text>
+          <text x={76} y={4} fontSize={8} fill="#64748b">{t('room.bedside')}</text>
         </g>
       )}
     </svg>

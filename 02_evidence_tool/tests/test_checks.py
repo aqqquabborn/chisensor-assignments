@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from evidence_tool.i18n import EN, ZH, localize  # noqa: E402
 from evidence_tool.inputs import InputError  # noqa: E402
 from evidence_tool.metrics import OVERALL  # noqa: E402
 from evidence_tool.pipeline import run, write_outputs  # noqa: E402
@@ -48,8 +49,8 @@ class Workspace:
         fn(data)
         p.write_text(json.dumps(data), encoding="utf-8")
 
-    def run(self):
-        return run(self.tmp / "data", self.tmp / "config")
+    def run(self, lang="en"):
+        return run(self.tmp / "data", self.tmp / "config", lang)
 
     def close(self):
         shutil.rmtree(self.tmp, ignore_errors=True)
@@ -288,6 +289,65 @@ class TestReadinessAndCopy(Base):
         self.assertFalse(r["budget"]["within_cap"])
 
 
+class TestChinese(Base):
+    """The Chinese report is the same analysis in another language."""
+
+    def test_numbers_do_not_depend_on_language(self):
+        en, zh = self.ws.run("en"), self.ws.run("zh")
+        for k in ("funnel", "money", "costs"):
+            self.assertEqual(en["analysis"][k], zh["analysis"][k], k)
+        self.assertEqual([p["id"] for p in en["priorities"]], [p["id"] for p in zh["priorities"]])
+        self.assertEqual([c["status"] for c in en["cards"]], [c["status"] for c in zh["cards"]])
+
+    def test_generated_text_is_chinese(self):
+        r = self.ws.run("zh")
+        msg = next(i["message"] for i in r["issues"] if i["code"] == "feedback.repaired_rows")
+        self.assertIn("已以带引号的用户陈述为基准自动修复", msg)
+        self.assertEqual(r["cards"][0]["status_label"], "BLOCKED（阻塞）")
+        self.assertTrue(r["priorities"][0]["title"].startswith("让已付费报告"))
+        self.assertIn("首次观察", {s["kind"] for s in r["sessions"]})
+
+    def test_outputs_are_written_and_deterministic(self):
+        write_outputs(self.ws.run("zh"), self.ws.tmp / "a")
+        write_outputs(self.ws.run("zh"), self.ws.tmp / "b")
+        for name in ("report.zh-CN.html", "analysis.zh-CN.json", "experiment_cards.zh-CN.json",
+                     "experiment_cards.zh-CN.md"):
+            self.assertEqual((self.ws.tmp / "a" / name).read_bytes(), (self.ws.tmp / "b" / name).read_bytes(), name)
+        html = (self.ws.tmp / "a/report.zh-CN.html").read_text(encoding="utf-8")
+        self.assertIn('<html lang="zh-CN">', html)
+        self.assertIn('href="report.html"', html)  # language switch
+
+    def test_every_config_text_has_both_languages(self):
+        missing = []
+
+        def walk(o, path):
+            if isinstance(o, dict):
+                if "en" in o and set(o) <= {"en", "zh"}:
+                    if not o.get("zh"):
+                        missing.append(path)
+                    return
+                for k, v in o.items():
+                    walk(v, f"{path}.{k}")
+            elif isinstance(o, list):
+                for i, v in enumerate(o):
+                    walk(v, f"{path}[{i}]")
+        for name in ("priorities.json", "experiments.json"):
+            walk(json.loads((ROOT / "config" / name).read_text(encoding="utf-8")), name)
+        self.assertEqual(missing, [])
+        self.assertEqual(set(EN), set(ZH))
+
+    def test_localize_falls_back_to_english(self):
+        self.assertEqual(localize({"en": "A", "zh": ""}, "zh"), "A")
+        self.assertEqual(localize({"title": {"en": "A", "zh": "甲"}, "n": 3}, "zh"), {"title": "甲", "n": 3})
+
+    def test_forbidden_claim_in_chinese_copy_is_caught_in_both_reports(self):
+        self.ws.edit_json("experiments.json", lambda d: d["cards"][1]["copy"].update(
+            hook={"en": "Fix your desk in 10 seconds.", "zh": "保证 10 秒改好你的书桌。"}))
+        for lang in ("en", "zh"):
+            card = next(c for c in self.ws.run(lang)["cards"] if c["type"] == "short_content")
+            self.assertFalse(card["copy_check"]["passed"], lang)
+
+
 class TestCli(Base):
     def test_cli_runs_and_strict_mode(self):
         out = self.ws.tmp / "cli_out"
@@ -296,6 +356,7 @@ class TestCli(Base):
         res = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
         self.assertEqual(res.returncode, 0, res.stderr)
         self.assertTrue((out / "report.html").exists())
+        self.assertTrue((out / "report.zh-CN.html").exists())
         (self.ws.tmp / "data/event_log.csv").unlink()
         res = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
         self.assertEqual(res.returncode, 2)

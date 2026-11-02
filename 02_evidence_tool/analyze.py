@@ -4,6 +4,7 @@
     python analyze.py                      # data/ + config/ → out/
     python analyze.py --data other_data --out other_out
     python analyze.py --strict             # exit 1 if any error-level input issue
+    python analyze.py --lang zh            # only the Chinese report (default: both en and zh)
 
 Exit codes: 0 ok · 1 --strict and input errors found · 2 fatal input problem.
 Standard library only (Python 3.9+). No network, keys or accounts.
@@ -27,14 +28,19 @@ def main(argv=None):
     ap.add_argument("--config", default=str(HERE / "config"), help="folder with params.json, priorities.json, experiments.json")
     ap.add_argument("--out", default=str(HERE / "out"), help="output folder")
     ap.add_argument("--strict", action="store_true", help="fail when any error-level input issue is found")
+    ap.add_argument("--lang", choices=["en", "zh", "all"], default="all",
+                    help="report language: en, zh, or all (default) — writes report.html and report.zh-CN.html")
     args = ap.parse_args(argv)
 
+    langs = ["en", "zh"] if args.lang == "all" else [args.lang]
+    paths = []
     try:
-        result = run(args.data, args.config)
+        for lang in reversed(langs):  # English last, so the summary below is printed in English
+            result = run(args.data, args.config, lang)
+            paths += write_outputs(result, args.out)
     except (InputError, ValueError) as exc:
         print(f"Input problem: {exc}", file=sys.stderr)
         return 2
-    paths = write_outputs(result, args.out)
 
     a = result["analysis"]
     f, m, c = a["funnel"][OVERALL], a["money"][OVERALL], a["costs"][OVERALL]

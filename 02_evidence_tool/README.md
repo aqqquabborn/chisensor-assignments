@@ -14,13 +14,14 @@ Python 3.9+ and the standard library only — nothing to install, no network,
 keys or accounts.
 
 ```bash
-python analyze.py                 # data/ + config/ → out/
-python -m unittest -v             # 27 repeatable checks
+python analyze.py                 # data/ + config/ → out/ (English + Chinese)
+python analyze.py --lang zh       # only the Chinese report
+python -m unittest -v             # 33 repeatable checks
 python analyze.py --strict        # exit 1 if any error-level input issue
 python analyze.py --data my_data --out my_out
 ```
 
-Open `out/report.html` in any browser. Exit codes: `0` ok, `1` strict mode found
+Open `out/report.html` (or `out/report.zh-CN.html`, linked from the report header) in any browser. Exit codes: `0` ok, `1` strict mode found
 input errors, `2` fatal input problem (missing file, missing column, bad JSON).
 
 ## Inputs and outputs
@@ -119,3 +120,12 @@ bash scripts/demo.sh
 
 The script runs the tool, the tests, then three input changes (a new refund, a
 cost-parameter change, a duplicate re-import) and shows the effect of each.
+
+## Language
+
+Every run writes the report, the analysis and the cards in English and Chinese
+(`*.zh-CN.*`); the numbers are computed once per language from the same inputs and a test
+checks that they match. Text fields in `config/priorities.json` and
+`config/experiments.json` are `{"en": …, "zh": …}`; a plain string is used for both. The
+copy check scans both languages (`forbidden_claims` in `params.json` includes Chinese terms).
+Source records (quotes, notes) stay in their original English.

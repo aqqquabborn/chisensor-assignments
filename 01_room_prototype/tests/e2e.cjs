@@ -32,14 +32,14 @@ const noOverflow = async (p, where) => {
   assert.ok(w <= 390, `horizontal overflow on ${where}: ${w}px`);
 };
 const scenario = async (p, label) => {
-  await p.getByRole('button', { name: /Test panel/ }).click();
+  await p.getByTestId('panel-toggle').click();
   await p.getByRole('button', { name: label }).click();
-  await p.getByRole('button', { name: /Test panel/ }).click();
+  await p.getByTestId('panel-toggle').click();
 };
 const debug = async (p) => {
-  await p.getByRole('button', { name: /Test panel/ }).click();
+  await p.getByTestId('panel-toggle').click();
   const d = JSON.parse(await p.getByTestId('debug').innerText());
-  await p.getByRole('button', { name: /Test panel/ }).click();
+  await p.getByTestId('panel-toggle').click();
   return d;
 };
 
@@ -166,7 +166,7 @@ const debug = async (p) => {
     const tx = (await store(p)).transaction.transactionId;
     await p.getByRole('button', { name: /store confirms payment/ }).click();
     await waitState(p, 'purchase_verified');
-    await p.getByRole('button', { name: /Test panel/ }).click();
+    await p.getByTestId('panel-toggle').click();
     for (let i = 0; i < 3; i++) await p.getByRole('button', { name: 'Send duplicate verification' }).click();
     await p.getByRole('button', { name: /Test panel/ }).click();
     const d = await debug(p);
@@ -192,7 +192,38 @@ const debug = async (p) => {
     assert.equal(d.content_unlocked, true);
   }, p);
 
-  await check('8 no camera / payment API used, no page errors', async () => {
+  await check('8 中文: switch, every screen translated, kept after refresh, no overflow', async () => {
+    await scenario(p, '① happy');
+    await p.getByTestId('lang-zh').click();
+    await p.getByText('你的卧室').waitFor();
+    await p.getByText('床保持原位').first().waitFor();
+    await noOverflow(p, 'zh start');
+    await p.reload();
+    await p.getByText('你的卧室').waitFor();                     // choice survives a refresh
+    await p.getByRole('button', { name: /开始扫描/ }).click();
+    await p.check('input[name=entry]');
+    await p.getByRole('button', { name: /提交扫描（缺 2 个区域）/ }).click();
+    await p.getByText('扫描不完整 — 未开始分析').waitFor();
+    await noOverflow(p, 'zh incomplete');
+    const visited = [];
+    for (const [label, text] of [['④ analysis_failed_recoverable', '正在分析你的房间'], ['⑤ purchase_pending', '付款处理中'],
+      ['⑥ verified_payment_delivery_failed', '已收到付款 — 报告尚未交付']]) {
+      await p.getByTestId('panel-toggle').click(); await p.getByRole('button', { name: label }).click(); await p.getByTestId('panel-toggle').click();
+      await p.getByText(text).first().waitFor();
+      await noOverflow(p, `zh ${label}`);
+      visited.push(label);
+    }
+    await p.getByRole('button', { name: /重试交付/ }).click();
+    await p.getByText('你的完整方案').waitFor();
+    await p.getByText('保持原位：床。').waitFor();
+    // no untranslated key ever leaks into the page
+    const leaked = await p.evaluate(() => document.body.innerText.match(/\b(?:section|task|item|status|free|scan|panel|upsell|purchase)\.[a-z_.]+/g));
+    assert.equal(leaked, null, `untranslated keys: ${leaked}`);
+    await p.getByTestId('lang-en').click();
+    await p.getByText('Your full plan').waitFor();
+  }, p);
+
+  await check('9 no camera / payment API used, no page errors', async () => {
     assert.deepEqual(await p.evaluate(() => window.__forbidden), []);
     assert.deepEqual(errors, []);
   }, p);

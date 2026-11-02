@@ -3,10 +3,10 @@
   "input_sha256": {
     "channel_data.csv": "736dcc856dc1a23e73c463662e489e7687efadd8ade3e5a3ea66cd5554112b05",
     "event_log.csv": "18138dda48799cfc7391af08cbba0e62a1af2830066fe52aa2dd089f217bbdfe",
-    "experiments.json": "5007cd79a9091c95bc303ba705f8296991f06aa4482fae9766ac8a96c421095e",
+    "experiments.json": "3241447d373e7e3a9d843cc22676c5c9afdcac98070f397d0d4ada3b15542cf7",
     "feedback_sessions.csv": "c0b179349880661ea5b0d22e4ec08340818762e07e263d9ac5705d6505a40d7b",
-    "params.json": "842f4bebf9bd8c228de242cecaca4248d8d0e5c11ee8f0a2a648ffb8fdc4962c",
-    "priorities.json": "42ad9a4ced73d9a8ecf7398a88ce259c1f1633edda04a9c0e7f08d42a47a6bf9"
+    "params.json": "677e842d242451f49c3858ab17ed54b763329f273becb35f8e5b9276d2056db2",
+    "priorities.json": "6c96cc5a3182ae0b3b15135469ce859e251cc16c32486eafbd72754e4e8cf4c4"
   },
   "cutoff": "2026-06-21 14:00:00",
   "issues": [
@@ -976,6 +976,7 @@
           "session_id": "S06",
           "participant_id": "P06",
           "kind": "first observation",
+          "visit": 1,
           "line": 7,
           "matched": {
             "observed_behavior": [
@@ -989,12 +990,13 @@
           "observed_behavior": "Experienced payment pending state, abandoned app",
           "user_statements": "My payment is stuck in pending, fix this!",
           "researcher_inferences": "Payment gateway error handling and recovery path must be robust",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S07",
           "participant_id": "P07",
           "kind": "first observation",
+          "visit": 1,
           "line": 8,
           "matched": {
             "user_statements": [
@@ -1004,12 +1006,13 @@
           "observed_behavior": "Successfully verified purchase, viewed full PDF report",
           "user_statements": "The report delivery finally came through, very cool tool.",
           "researcher_inferences": "Delivery state machine needs clearer status indicators for users",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S08",
           "participant_id": "P08",
           "kind": "first observation",
+          "visit": 1,
           "line": 9,
           "matched": {
             "observed_behavior": [
@@ -1022,12 +1025,13 @@
           "observed_behavior": "Requested refund due to misunderstanding subscription terms",
           "user_statements": "I want my money back, this isn't what I expected.",
           "researcher_inferences": "Refund policy clarity and frictionless UX reduce customer support load",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S14",
           "participant_id": "P02",
           "kind": "re-test #1",
+          "visit": 2,
           "line": 15,
           "matched": {
             "observed_behavior": [
@@ -1042,12 +1046,13 @@
           "observed_behavior": "Encountered delivery pending state for report, recovered after retry",
           "user_statements": "Report took 5 mins to load, thought it crashed.",
           "researcher_inferences": "Async report generation needs a clear progress bar and recovery state",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S18",
           "participant_id": "P06",
           "kind": "re-test #1",
+          "visit": 2,
           "line": 19,
           "matched": {
             "observed_behavior": [
@@ -1060,7 +1065,7 @@
           "observed_behavior": "Asked for refund, process took too long",
           "user_statements": "Refund was processed smoothly.",
           "researcher_inferences": "Refund processed successfully; automated flow reduces CS overhead",
-          "product_version": "not recorded"
+          "product_version": null
         }
       ],
       "event_evidence": {
@@ -1139,6 +1144,7 @@
           "session_id": "S02",
           "participant_id": "P02",
           "kind": "first observation",
+          "visit": 1,
           "line": 3,
           "matched": {
             "observed_behavior": [
@@ -1151,12 +1157,13 @@
           "observed_behavior": "Encountered LIDAR error on standard iPhone, dropped off",
           "user_statements": "My phone isn't supported? That's annoying.",
           "researcher_inferences": "Hardware filtering in marketing needs immediate tightening to Pro models only",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S12",
           "participant_id": "P12",
           "kind": "first observation",
+          "visit": 1,
           "line": 13,
           "matched": {
             "observed_behavior": [
@@ -1169,12 +1176,13 @@
           "observed_behavior": "Dropped off during initial camera permission request",
           "user_statements": "Why do you need camera access just for a demo?",
           "researcher_inferences": "Permission request timing must be delayed until post-Aha moment",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S16",
           "participant_id": "P04",
           "kind": "re-test #1",
+          "visit": 2,
           "line": 17,
           "matched": {
             "observed_behavior": [
@@ -1187,7 +1195,7 @@
           "observed_behavior": "Struggled with lighting calibration during scan",
           "user_statements": "The scan failed twice in low light.",
           "researcher_inferences": "Low-light scanning error recovery instructions need better UX copy",
-          "product_version": "not recorded"
+          "product_version": null
         }
       ],
       "event_evidence": {
@@ -1238,6 +1246,7 @@
           "session_id": "S01",
           "participant_id": "P01",
           "kind": "first observation",
+          "visit": 1,
           "line": 2,
           "matched": {
             "observed_behavior": [
@@ -1251,12 +1260,13 @@
           "observed_behavior": "Scanned room successfully on first try, hesitated at paywall",
           "user_statements": "Why do I have to pay before seeing the full report?",
           "researcher_inferences": "Friction at paywall requires soft-conversion or free preview expansion",
-          "product_version": "not recorded"
+          "product_version": null
         },
         {
           "session_id": "S08",
           "participant_id": "P08",
           "kind": "first observation",
+          "visit": 1,
           "line": 9,
           "matched": {
             "observed_behavior": [
@@ -1270,7 +1280,7 @@
           "observed_behavior": "Requested refund due to misunderstanding subscription terms",
           "user_statements": "I want my money back, this isn't what I expected.",
           "researcher_inferences": "Refund policy clarity and frictionless UX reduce customer support load",
-          "product_version": "not recorded"
+          "product_version": null
         }
       ],
       "event_evidence": {
@@ -1335,6 +1345,7 @@
       "type_label": "ASO / store value expression",
       "title": "Store page that shows the before/after layout and states the LiDAR requirement",
       "status": "BLOCKED",
+      "status_label": "BLOCKED",
       "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
       "approved_for_launch": false,
       "owner": "Growth PM, ASO (name to be assigned before launch)",
@@ -1597,7 +1608,21 @@
           "multiple rooms",
           "whole home",
           "scientifically proven",
-          "100%"
+          "100%",
+          "保证",
+          "必然提升",
+          "爆款",
+          "病毒式",
+          "百万播放",
+          "搜索量",
+          "第一名",
+          "所有 iphone",
+          "所有iphone",
+          "任何 iphone",
+          "任何iphone",
+          "多房间",
+          "全屋",
+          "科学证明"
         ]
       },
       "keyword_intent_groups": [
@@ -1688,6 +1713,7 @@
       "type_label": "Short content · 3-shot script",
       "title": "3-shot 'desk facing the door' fix with a KOC creator",
       "status": "BLOCKED",
+      "status_label": "BLOCKED",
       "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
       "approved_for_launch": false,
       "owner": "Content lead, KOC program (name to be assigned before launch)",
@@ -1967,7 +1993,21 @@
           "multiple rooms",
           "whole home",
           "scientifically proven",
-          "100%"
+          "100%",
+          "保证",
+          "必然提升",
+          "爆款",
+          "病毒式",
+          "百万播放",
+          "搜索量",
+          "第一名",
+          "所有 iphone",
+          "所有iphone",
+          "任何 iphone",
+          "任何iphone",
+          "多房间",
+          "全屋",
+          "科学证明"
         ]
       },
       "script": [

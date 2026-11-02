@@ -162,6 +162,6 @@ describe('room data and paid plan', () => {
     expect(buildAdjustmentPlan(DEFAULT_CONSTRAINTS).steps.map((s) => s.itemId)).toEqual(['chair', 'dresser', 'nightstand']);
     const keepDresser = buildAdjustmentPlan([...DEFAULT_CONSTRAINTS, 'dresser_fixed']);
     expect(keepDresser.steps.map((s) => s.itemId)).toEqual(['chair', 'nightstand']);
-    expect(keepDresser.fixed).toEqual(['Bed', 'Dresser']);
+    expect(keepDresser.fixed).toEqual(['bed', 'dresser']);
   });
 });

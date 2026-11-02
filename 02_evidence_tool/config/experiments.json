@@ -1,169 +1,820 @@
 {
-  "_about": "Exactly two experiment cards. Wording is editable; the tool fills quotes from the cited feedback records, {placeholders} from the data (see baseline_metrics), prerequisite checks and the readiness status. Citations use {\"session\": \"S05\", \"field\": \"observed_behavior | user_statements | researcher_inferences\"}. Never add keyword search volumes or virality claims — the copy check rejects them.",
+  "_about": "Exactly two experiment cards. Text fields hold {\"en\": …, \"zh\": …}; a plain string is used for both languages. Wording is editable; the tool fills quotes from the cited feedback records, {placeholders} from the data (see baseline_metrics), prerequisite checks and the readiness status. Citations use {\"session\": \"S05\", \"field\": \"observed_behavior | user_statements | researcher_inferences\"}. Never add keyword search volumes or virality claims — the copy check rejects them.",
   "cards": [
     {
       "id": "EXP-ASO-01",
       "type": "aso",
-      "title": "Store page that shows the before/after layout and states the LiDAR requirement",
-      "owner": "Growth PM, ASO (name to be assigned before launch)",
-      "channel": "App Store custom product page, served to ASA_Category search ads",
+      "title": {
+        "en": "Store page that shows the before/after layout and states the LiDAR requirement",
+        "zh": "展示前后布局对比并说明 LiDAR 要求的商店页面"
+      },
+      "owner": {
+        "en": "Growth PM, ASO (name to be assigned before launch)",
+        "zh": "增长产品经理，ASO（上线前指定具体负责人）"
+      },
+      "channel": {
+        "en": "App Store custom product page, served to ASA_Category search ads",
+        "zh": "App Store 自定义产品页，投放给 ASA_Category 搜索广告"
+      },
       "baseline_channel": "ASA_Category",
-      "target_problem": "In ASA_Category traffic, {qs_rate} of first opens reach a qualified scan and {refund_rate} of verified purchases were fully refunded. The store page has to set the device requirement and the free-then-paid split before install, and show the before/after result people respond to.",
-      "linked_priorities": ["PR-SCAN-ENTRY", "PR-PAYWALL-CLARITY", "PR-DELIVERY"],
+      "target_problem": {
+        "en": "In ASA_Category traffic, {qs_rate} of first opens reach a qualified scan and {refund_rate} of verified purchases were fully refunded. The store page has to set the device requirement and the free-then-paid split before install, and show the before/after result people respond to.",
+        "zh": "在 ASA_Category 流量中，{qs_rate} 的首次打开完成了合格扫描，{refund_rate} 的已验证购买被全额退款。商店页面需要在安装前说明设备要求和“先免费、后付费”的分界，并展示用户最有反应的前后对比效果。"
+      },
+      "linked_priorities": [
+        "PR-SCAN-ENTRY",
+        "PR-PAYWALL-CLARITY",
+        "PR-DELIVERY"
+      ],
       "evidence": [
-        {"session": "S05", "field": "user_statements"},
-        {"session": "S02", "field": "observed_behavior"},
-        {"session": "S01", "field": "user_statements"},
-        {"session": "S11", "field": "user_statements"}
+        {
+          "session": "S05",
+          "field": "user_statements"
+        },
+        {
+          "session": "S02",
+          "field": "observed_behavior"
+        },
+        {
+          "session": "S01",
+          "field": "user_statements"
+        },
+        {
+          "session": "S11",
+          "field": "user_statements"
+        }
       ],
       "prerequisites": [
-        {"text": "Given readiness flag: commercial delivery ready", "check": "readiness_flag"},
-        {"text": "No verified payment left undelivered at cutoff", "check": "no_undelivered"},
-        {"text": "No purchase stuck in pending at cutoff", "check": "no_pending"},
-        {"text": "PR-DELIVERY passes its acceptance check", "check": "priority_pass:PR-DELIVERY"},
-        {"text": "Custom product page analytics (impressions, installs) available in App Store Connect", "check": "manual"},
-        {"text": "Screenshot is a real in-app before/after render, not a mock-up", "check": "manual"}
+        {
+          "text": {
+            "en": "Given readiness flag: commercial delivery ready",
+            "zh": "给定的 readiness flag：商业交付已就绪"
+          },
+          "check": "readiness_flag"
+        },
+        {
+          "text": {
+            "en": "No verified payment left undelivered at cutoff",
+            "zh": "截止时没有已验证但未交付的付款"
+          },
+          "check": "no_undelivered"
+        },
+        {
+          "text": {
+            "en": "No purchase stuck in pending at cutoff",
+            "zh": "截止时没有停留在 pending 的购买"
+          },
+          "check": "no_pending"
+        },
+        {
+          "text": {
+            "en": "PR-DELIVERY passes its acceptance check",
+            "zh": "PR-DELIVERY 通过其验收检查"
+          },
+          "check": "priority_pass:PR-DELIVERY"
+        },
+        {
+          "text": {
+            "en": "Custom product page analytics (impressions, installs) available in App Store Connect",
+            "zh": "App Store Connect 中可获取自定义产品页数据（曝光、安装）"
+          },
+          "check": "manual"
+        },
+        {
+          "text": {
+            "en": "Screenshot is a real in-app before/after render, not a mock-up",
+            "zh": "截图为应用内真实的前后对比渲染，而非效果图"
+          },
+          "check": "manual"
+        }
       ],
-      "hypothesis": "If the ASA_Category custom product page leads with a real before/after layout and states the iPhone Pro (LiDAR) requirement in the first screenshot, then more of the people who install will reach a qualified scan, because they self-select on device and understand the free-then-paid value before installing.",
+      "hypothesis": {
+        "en": "If the ASA_Category custom product page leads with a real before/after layout and states the iPhone Pro (LiDAR) requirement in the first screenshot, then more of the people who install will reach a qualified scan, because they self-select on device and understand the free-then-paid value before installing.",
+        "zh": "如果 ASA_Category 自定义产品页以真实的前后布局对比开场，并在第一张截图中说明需要 iPhone Pro（LiDAR），那么安装后完成合格扫描的人会更多，因为用户会按设备自我筛选，并在安装前就理解“先免费、后付费”的价值。"
+      },
       "copy": {
-        "title_concept": "ChiSensor: Room Layout Scan",
-        "subtitle": "See a better desk and bed layout",
-        "screenshot_caption": "Your room, rearranged — before you move anything",
-        "device_badge": "Requires iPhone Pro with LiDAR",
-        "footnote": "First suggestion free · full guide is a paid upgrade"
+        "title_concept": {
+          "en": "ChiSensor: Room Layout Scan",
+          "zh": "ChiSensor：房间布局扫描"
+        },
+        "subtitle": {
+          "en": "See a better desk and bed layout",
+          "zh": "看看更好的书桌和床的布局"
+        },
+        "screenshot_caption": {
+          "en": "Your room, rearranged — before you move anything",
+          "zh": "重新布置你的房间 — 在动手之前"
+        },
+        "device_badge": {
+          "en": "Requires iPhone Pro with LiDAR",
+          "zh": "需要配备 LiDAR 的 iPhone Pro"
+        },
+        "footnote": {
+          "en": "First suggestion free · full guide is a paid upgrade",
+          "zh": "首条建议免费 · 完整指南为付费升级"
+        }
       },
       "keyword_intent_groups": [
-        {"group": "Desk and home-office layout", "intent": "Fix a work-from-home desk that feels draining",
-         "example_terms": ["desk layout", "home office setup", "desk facing door"],
-         "evidence": [{"session": "S11", "field": "user_statements"}, {"session": "S03", "field": "user_statements"}]},
-        {"group": "Bedroom layout", "intent": "Rearrange a bedroom without buying furniture",
-         "example_terms": ["bedroom layout", "furniture arrangement", "room layout planner"],
-         "evidence": [{"session": "S13", "field": "user_statements"}]},
-        {"group": "Feng shui, explained", "intent": "Feng shui with a practical, non-mystical explanation",
-         "example_terms": ["feng shui bedroom", "feng shui desk", "room energy"],
-         "evidence": [{"session": "S10", "field": "user_statements"}]}
+        {
+          "group": {
+            "en": "Desk and home-office layout",
+            "zh": "书桌与居家办公布局"
+          },
+          "intent": {
+            "en": "Fix a work-from-home desk that feels draining",
+            "zh": "改善让人疲惫的居家办公书桌"
+          },
+          "example_terms": [
+            "desk layout",
+            "home office setup",
+            "desk facing door"
+          ],
+          "evidence": [
+            {
+              "session": "S11",
+              "field": "user_statements"
+            },
+            {
+              "session": "S03",
+              "field": "user_statements"
+            }
+          ]
+        },
+        {
+          "group": {
+            "en": "Bedroom layout",
+            "zh": "卧室布局"
+          },
+          "intent": {
+            "en": "Rearrange a bedroom without buying furniture",
+            "zh": "不买家具，重新布置卧室"
+          },
+          "example_terms": [
+            "bedroom layout",
+            "furniture arrangement",
+            "room layout planner"
+          ],
+          "evidence": [
+            {
+              "session": "S13",
+              "field": "user_statements"
+            }
+          ]
+        },
+        {
+          "group": {
+            "en": "Feng shui, explained",
+            "zh": "风水，讲清楚"
+          },
+          "intent": {
+            "en": "Feng shui with a practical, non-mystical explanation",
+            "zh": "有实际依据、不神秘化的风水解读"
+          },
+          "example_terms": [
+            "feng shui bedroom",
+            "feng shui desk",
+            "room energy"
+          ],
+          "evidence": [
+            {
+              "session": "S10",
+              "field": "user_statements"
+            }
+          ]
+        }
       ],
       "screenshot_concept": {
-        "frame": "Screenshot 1 of the custom product page",
-        "visual": "Split view of one real scan: the current layout on the left, the green ghosted 'after' position of the desk on the right",
-        "caption": "Your room, rearranged — before you move anything",
-        "badge": "Requires iPhone Pro with LiDAR",
-        "footnote": "First suggestion free · full guide is a paid upgrade"
+        "frame": {
+          "en": "Screenshot 1 of the custom product page",
+          "zh": "自定义产品页第 1 张截图"
+        },
+        "visual": {
+          "en": "Split view of one real scan: the current layout on the left, the green ghosted 'after' position of the desk on the right",
+          "zh": "同一次真实扫描的分屏：左侧是当前布局，右侧是书桌的绿色半透明“调整后”位置"
+        },
+        "caption": {
+          "en": "Your room, rearranged — before you move anything",
+          "zh": "重新布置你的房间 — 在动手之前"
+        },
+        "badge": {
+          "en": "Requires iPhone Pro with LiDAR",
+          "zh": "需要配备 LiDAR 的 iPhone Pro"
+        },
+        "footnote": {
+          "en": "First suggestion free · full guide is a paid upgrade",
+          "zh": "首条建议免费 · 完整指南为付费升级"
+        }
       },
       "product_facts": [
-        {"text": "A free first suggestion is shown before any payment", "evidence": [{"session": "S03", "field": "observed_behavior"}]},
-        {"text": "The app shows a before/after ghosted preview of the new layout", "evidence": [{"session": "S05", "field": "observed_behavior"}]},
-        {"text": "Users can re-scan after a change and see the score move", "evidence": [{"session": "S13", "field": "observed_behavior"}]}
+        {
+          "text": {
+            "en": "A free first suggestion is shown before any payment",
+            "zh": "付款前会先展示一条免费建议"
+          },
+          "evidence": [
+            {
+              "session": "S03",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "The app shows a before/after ghosted preview of the new layout",
+            "zh": "应用会以半透明叠加的方式展示新布局的前后对比预览"
+          },
+          "evidence": [
+            {
+              "session": "S05",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "Users can re-scan after a change and see the score move",
+            "zh": "用户调整后可以重新扫描，并看到分数变化"
+          },
+          "evidence": [
+            {
+              "session": "S13",
+              "field": "observed_behavior"
+            }
+          ]
+        }
       ],
       "unsupported_capabilities": [
-        {"text": "Scanning on iPhones without LiDAR", "evidence": [{"session": "S02", "field": "observed_behavior"}]},
-        {"text": "Several rooms in one pass", "evidence": [{"session": "S09", "field": "user_statements"}]},
-        {"text": "Direct shopping links for recommended furniture", "evidence": [{"session": "S04", "field": "researcher_inferences"}]}
+        {
+          "text": {
+            "en": "Scanning on iPhones without LiDAR",
+            "zh": "在没有 LiDAR 的 iPhone 上扫描"
+          },
+          "evidence": [
+            {
+              "session": "S02",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "Several rooms in one pass",
+            "zh": "一次扫描多个房间"
+          },
+          "evidence": [
+            {
+              "session": "S09",
+              "field": "user_statements"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "Direct shopping links for recommended furniture",
+            "zh": "推荐家具的直接购物链接"
+          },
+          "evidence": [
+            {
+              "session": "S04",
+              "field": "researcher_inferences"
+            }
+          ]
+        }
       ],
       "marketing_hypotheses": [
-        "A visible before/after on the store page raises install intent the way the in-app preview raised purchase intent for one participant.",
-        "Stating the LiDAR requirement up front may lower installs but raise the share of installs that reach a qualified scan.",
-        "Saying 'first suggestion free, full guide paid' before install reduces refunds caused by mismatched expectations."
+        {
+          "en": "A visible before/after on the store page raises install intent the way the in-app preview raised purchase intent for one participant.",
+          "zh": "商店页面上可见的前后对比会提升安装意愿，就像应用内预览提升了一位参与者的购买意愿一样。"
+        },
+        {
+          "en": "Stating the LiDAR requirement up front may lower installs but raise the share of installs that reach a qualified scan.",
+          "zh": "预先说明 LiDAR 要求可能会减少安装量，但能提高安装用户中完成合格扫描的比例。"
+        },
+        {
+          "en": "Saying 'first suggestion free, full guide paid' before install reduces refunds caused by mismatched expectations.",
+          "zh": "在安装前说明“首条建议免费、完整指南付费”，可减少因预期不符导致的退款。"
+        }
       ],
       "budget_cap_usd": 500,
       "baseline_metrics": [
-        {"key": "qs_rate", "label": "Qualified scan ÷ first open", "kind": "rate", "num": "qualified_scan", "den": "first_open"},
-        {"key": "pay_rate", "label": "Verified first-time payer ÷ free suggestion viewed", "kind": "rate", "num": "first_time_payer", "den": "free_suggestion_viewed"},
-        {"key": "refund_rate", "label": "Fully refunded ÷ verified purchases", "kind": "refund_rate"},
-        {"key": "cash_per_scan", "label": "Cash cost per qualified scan", "kind": "cash_per", "per": "qualified_scan"},
-        {"key": "reach", "label": "First opens the budget buys at the observed cost", "kind": "reach", "per": "first_open"}
+        {
+          "key": "qs_rate",
+          "label": {
+            "en": "Qualified scan ÷ first open",
+            "zh": "合格扫描 ÷ 首次打开"
+          },
+          "kind": "rate",
+          "num": "qualified_scan",
+          "den": "first_open"
+        },
+        {
+          "key": "pay_rate",
+          "label": {
+            "en": "Verified first-time payer ÷ free suggestion viewed",
+            "zh": "已验证首次付款用户 ÷ 查看免费建议"
+          },
+          "kind": "rate",
+          "num": "first_time_payer",
+          "den": "free_suggestion_viewed"
+        },
+        {
+          "key": "refund_rate",
+          "label": {
+            "en": "Fully refunded ÷ verified purchases",
+            "zh": "全额退款 ÷ 已验证购买"
+          },
+          "kind": "refund_rate"
+        },
+        {
+          "key": "cash_per_scan",
+          "label": {
+            "en": "Cash cost per qualified scan",
+            "zh": "每次合格扫描的现金成本"
+          },
+          "kind": "cash_per",
+          "per": "qualified_scan"
+        },
+        {
+          "key": "reach",
+          "label": {
+            "en": "First opens the budget buys at the observed cost",
+            "zh": "按观测成本，预算可买到的首次打开数"
+          },
+          "kind": "reach",
+          "per": "first_open"
+        }
       ],
       "primary_metric": {
-        "name": "Qualified scans per product page impression",
-        "numerator": "First opens from the custom product page that reach a qualified scan (event log)",
-        "denominator": "Custom product page impressions (App Store Connect). Store impressions only — no video plays.",
-        "baseline": "Not in the input data: measure the default page over the same 14 days as the control."
+        "name": {
+          "en": "Qualified scans per product page impression",
+          "zh": "每次产品页曝光带来的合格扫描数"
+        },
+        "numerator": {
+          "en": "First opens from the custom product page that reach a qualified scan (event log)",
+          "zh": "来自自定义产品页、并完成合格扫描的首次打开（事件日志）"
+        },
+        "denominator": {
+          "en": "Custom product page impressions (App Store Connect). Store impressions only — no video plays.",
+          "zh": "自定义产品页曝光（App Store Connect）。仅限商店曝光 — 不含视频播放。"
+        },
+        "baseline": {
+          "en": "Not in the input data: measure the default page over the same 14 days as the control.",
+          "zh": "输入数据中没有：在同一 14 天内测量默认产品页作为对照。"
+        }
       },
       "guardrails": [
-        {"name": "Qualified scan ÷ first open", "denominator": "First opens from the page", "rule": "Not below the ASA_Category baseline ({qs_rate})"},
-        {"name": "Refund share", "denominator": "Verified purchases from the page cohort", "rule": "Not above the ASA_Category baseline ({refund_rate})"},
-        {"name": "Cash cost per qualified scan", "denominator": "Qualified scans from the page cohort", "rule": "Not above the ASA_Category baseline ({cash_per_scan})"}
+        {
+          "name": {
+            "en": "Qualified scan ÷ first open",
+            "zh": "合格扫描 ÷ 首次打开"
+          },
+          "denominator": {
+            "en": "First opens from the page",
+            "zh": "来自该页面的首次打开"
+          },
+          "rule": {
+            "en": "Not below the ASA_Category baseline ({qs_rate})",
+            "zh": "不低于 ASA_Category 基线（{qs_rate}）"
+          }
+        },
+        {
+          "name": {
+            "en": "Refund share",
+            "zh": "退款占比"
+          },
+          "denominator": {
+            "en": "Verified purchases from the page cohort",
+            "zh": "来自该页面用户群的已验证购买"
+          },
+          "rule": {
+            "en": "Not above the ASA_Category baseline ({refund_rate})",
+            "zh": "不高于 ASA_Category 基线（{refund_rate}）"
+          }
+        },
+        {
+          "name": {
+            "en": "Cash cost per qualified scan",
+            "zh": "每次合格扫描的现金成本"
+          },
+          "denominator": {
+            "en": "Qualified scans from the page cohort",
+            "zh": "来自该页面用户群的合格扫描"
+          },
+          "rule": {
+            "en": "Not above the ASA_Category baseline ({cash_per_scan})",
+            "zh": "不高于 ASA_Category 基线（{cash_per_scan}）"
+          }
+        }
       ],
-      "stop_rule": "Stop when the {budget_cap} cap is spent or after 14 days. Stop early if any verified payment from this cohort stays undelivered for more than 24 hours, or if the refund share rises above {refund_rate}. If fewer than 20 first opens are reached (budget reach: {reach}), report the result as inconclusive and make no rate claims.",
-      "continue_rule": "Roll the page out to all ASA traffic only if, with at least 20 first opens, qualified scans per impression beat the default page over the same period, qualified scan ÷ first open is at or above {qs_rate}, and no guardrail is breached."
+      "stop_rule": {
+        "en": "Stop when the {budget_cap} cap is spent or after 14 days. Stop early if any verified payment from this cohort stays undelivered for more than 24 hours, or if the refund share rises above {refund_rate}. If fewer than 20 first opens are reached (budget reach: {reach}), report the result as inconclusive and make no rate claims.",
+        "zh": "花完 {budget_cap} 预算上限或满 14 天即停止。若该用户群有任何已验证付款超过 24 小时未交付，或退款占比升至 {refund_rate} 以上，则提前停止。若首次打开不足 20 次（预算可覆盖：{reach}），结果记为不确定，不对任何转化率下结论。"
+      },
+      "continue_rule": {
+        "en": "Roll the page out to all ASA traffic only if, with at least 20 first opens, qualified scans per impression beat the default page over the same period, qualified scan ÷ first open is at or above {qs_rate}, and no guardrail is breached.",
+        "zh": "仅当首次打开至少 20 次、同期每次曝光的合格扫描数优于默认页面、合格扫描 ÷ 首次打开不低于 {qs_rate}，且没有触发任何保护指标时，才把该页面推广到全部 ASA 流量。"
+      }
     },
     {
       "id": "EXP-CONTENT-01",
       "type": "short_content",
-      "title": "3-shot 'desk facing the door' fix with a KOC creator",
-      "owner": "Content lead, KOC program (name to be assigned before launch)",
-      "channel": "TikTok, existing KOC creators (TikTok_KOC), one tracking link per video",
+      "title": {
+        "en": "3-shot 'desk facing the door' fix with a KOC creator",
+        "zh": "与 KOC 创作者合作的三镜头“书桌背对门”改造视频"
+      },
+      "owner": {
+        "en": "Content lead, KOC program (name to be assigned before launch)",
+        "zh": "内容负责人，KOC 项目（上线前指定具体负责人）"
+      },
+      "channel": {
+        "en": "TikTok, existing KOC creators (TikTok_KOC), one tracking link per video",
+        "zh": "TikTok，现有 KOC 创作者（TikTok_KOC），每条视频一个追踪链接"
+      },
       "baseline_channel": "TikTok_KOC",
-      "target_problem": "In TikTok_KOC traffic, {qs_rate} of first opens reach a qualified scan and {refund_rate} of verified purchases were fully refunded. Content should attract people with a concrete desk problem and a LiDAR iPhone, and set the free-then-paid expectation.",
-      "linked_priorities": ["PR-SCAN-ENTRY", "PR-PAYWALL-CLARITY", "PR-DELIVERY"],
+      "target_problem": {
+        "en": "In TikTok_KOC traffic, {qs_rate} of first opens reach a qualified scan and {refund_rate} of verified purchases were fully refunded. Content should attract people with a concrete desk problem and a LiDAR iPhone, and set the free-then-paid expectation.",
+        "zh": "在 TikTok_KOC 流量中，{qs_rate} 的首次打开完成了合格扫描，{refund_rate} 的已验证购买被全额退款。内容应吸引有具体书桌问题、并持有 LiDAR iPhone 的人，并提前设定“先免费、后付费”的预期。"
+      },
+      "linked_priorities": [
+        "PR-SCAN-ENTRY",
+        "PR-PAYWALL-CLARITY",
+        "PR-DELIVERY"
+      ],
       "evidence": [
-        {"session": "S03", "field": "user_statements"},
-        {"session": "S11", "field": "user_statements"},
-        {"session": "S05", "field": "user_statements"},
-        {"session": "S13", "field": "user_statements"},
-        {"session": "S02", "field": "observed_behavior"}
+        {
+          "session": "S03",
+          "field": "user_statements"
+        },
+        {
+          "session": "S11",
+          "field": "user_statements"
+        },
+        {
+          "session": "S05",
+          "field": "user_statements"
+        },
+        {
+          "session": "S13",
+          "field": "user_statements"
+        },
+        {
+          "session": "S02",
+          "field": "observed_behavior"
+        }
       ],
       "prerequisites": [
-        {"text": "Given readiness flag: commercial delivery ready", "check": "readiness_flag"},
-        {"text": "No verified payment left undelivered at cutoff", "check": "no_undelivered"},
-        {"text": "No purchase stuck in pending at cutoff", "check": "no_pending"},
-        {"text": "PR-DELIVERY passes its acceptance check", "check": "priority_pass:PR-DELIVERY"},
-        {"text": "Creator brief approved; creator shows the real app screen, no staged results", "check": "manual"},
-        {"text": "One tracking link per video so first opens can be attributed", "check": "manual"}
+        {
+          "text": {
+            "en": "Given readiness flag: commercial delivery ready",
+            "zh": "给定的 readiness flag：商业交付已就绪"
+          },
+          "check": "readiness_flag"
+        },
+        {
+          "text": {
+            "en": "No verified payment left undelivered at cutoff",
+            "zh": "截止时没有已验证但未交付的付款"
+          },
+          "check": "no_undelivered"
+        },
+        {
+          "text": {
+            "en": "No purchase stuck in pending at cutoff",
+            "zh": "截止时没有停留在 pending 的购买"
+          },
+          "check": "no_pending"
+        },
+        {
+          "text": {
+            "en": "PR-DELIVERY passes its acceptance check",
+            "zh": "PR-DELIVERY 通过其验收检查"
+          },
+          "check": "priority_pass:PR-DELIVERY"
+        },
+        {
+          "text": {
+            "en": "Creator brief approved; creator shows the real app screen, no staged results",
+            "zh": "创作者简报已批准；创作者展示真实的应用画面，不摆拍结果"
+          },
+          "check": "manual"
+        },
+        {
+          "text": {
+            "en": "One tracking link per video so first opens can be attributed",
+            "zh": "每条视频一个追踪链接，以便归因首次打开"
+          },
+          "check": "manual"
+        }
       ],
-      "hypothesis": "If KOC videos show one concrete desk-facing-the-door fix with the real before/after preview and say the app needs an iPhone Pro, then TikTok_KOC first opens will reach a qualified scan more often than the current baseline ({qs_rate}), because the video pre-qualifies people on problem and device.",
+      "hypothesis": {
+        "en": "If KOC videos show one concrete desk-facing-the-door fix with the real before/after preview and say the app needs an iPhone Pro, then TikTok_KOC first opens will reach a qualified scan more often than the current baseline ({qs_rate}), because the video pre-qualifies people on problem and device.",
+        "zh": "如果 KOC 视频展示一个具体的“书桌背对门”改造，配合真实的前后对比预览，并说明应用需要 iPhone Pro，那么 TikTok_KOC 的首次打开完成合格扫描的比例会高于当前基线（{qs_rate}），因为视频已按问题和设备对观众做了预筛选。"
+      },
       "copy": {
-        "hook": "Your desk is facing the door. Here's the 10-second fix.",
-        "caption": "Scanned my room with ChiSensor. First suggestion is free, the full guide is paid. Needs iPhone Pro (LiDAR).",
-        "call_to_action": "Scan your desk — first suggestion free"
+        "hook": {
+          "en": "Your desk is facing the door. Here's the 10-second fix.",
+          "zh": "你的书桌背对着门。10 秒教你改好。"
+        },
+        "caption": {
+          "en": "Scanned my room with ChiSensor. First suggestion is free, the full guide is paid. Needs iPhone Pro (LiDAR).",
+          "zh": "用 ChiSensor 扫描了我的房间。首条建议免费，完整指南需付费。需要 iPhone Pro（LiDAR）。"
+        },
+        "call_to_action": {
+          "en": "Scan your desk — first suggestion free",
+          "zh": "扫描你的书桌 — 首条建议免费"
+        }
       },
       "script": [
-        {"shot": 1, "seconds": "0–3", "visual": "Creator at a work-from-home desk with their back to the door, glancing over their shoulder",
-         "on_screen_text": "Why does my desk feel draining?", "voiceover": "My desk faced the door and I never felt focused.",
-         "evidence": [{"session": "S03", "field": "user_statements"}, {"session": "S11", "field": "user_statements"}]},
-        {"shot": 2, "seconds": "3–9", "visual": "Screen recording: LiDAR scan of the same room, then the green ghosted 'after' position of the desk",
-         "on_screen_text": "Real scan · iPhone Pro with LiDAR", "voiceover": "I scanned the room and it showed me where the desk should go, without buying anything.",
-         "evidence": [{"session": "S05", "field": "user_statements"}, {"session": "S02", "field": "observed_behavior"}]},
-        {"shot": 3, "seconds": "9–15", "visual": "Desk moved; creator re-scans and the app's real score change is shown on screen (no number promised in advance)",
-         "on_screen_text": "First suggestion free · full guide paid", "voiceover": "Moved it, re-scanned, and my score went up. Try the free suggestion first.",
-         "evidence": [{"session": "S13", "field": "user_statements"}, {"session": "S01", "field": "user_statements"}]}
+        {
+          "shot": 1,
+          "seconds": "0–3",
+          "visual": {
+            "en": "Creator at a work-from-home desk with their back to the door, glancing over their shoulder",
+            "zh": "创作者坐在居家办公的书桌前，背对着门，回头张望"
+          },
+          "on_screen_text": {
+            "en": "Why does my desk feel draining?",
+            "zh": "为什么我的书桌让人这么累？"
+          },
+          "voiceover": {
+            "en": "My desk faced the door and I never felt focused.",
+            "zh": "我的书桌背对着门，我从来没法集中注意力。"
+          },
+          "evidence": [
+            {
+              "session": "S03",
+              "field": "user_statements"
+            },
+            {
+              "session": "S11",
+              "field": "user_statements"
+            }
+          ]
+        },
+        {
+          "shot": 2,
+          "seconds": "3–9",
+          "visual": {
+            "en": "Screen recording: LiDAR scan of the same room, then the green ghosted 'after' position of the desk",
+            "zh": "录屏：用 LiDAR 扫描同一个房间，然后显示书桌的绿色半透明“调整后”位置"
+          },
+          "on_screen_text": {
+            "en": "Real scan · iPhone Pro with LiDAR",
+            "zh": "真实扫描 · 配备 LiDAR 的 iPhone Pro"
+          },
+          "voiceover": {
+            "en": "I scanned the room and it showed me where the desk should go, without buying anything.",
+            "zh": "我扫描了房间，它告诉我书桌该放在哪里，什么都不用买。"
+          },
+          "evidence": [
+            {
+              "session": "S05",
+              "field": "user_statements"
+            },
+            {
+              "session": "S02",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "shot": 3,
+          "seconds": "9–15",
+          "visual": {
+            "en": "Desk moved; creator re-scans and the app's real score change is shown on screen (no number promised in advance)",
+            "zh": "书桌移动后，创作者重新扫描，屏幕上显示应用中真实的分数变化（不预先承诺任何数字）"
+          },
+          "on_screen_text": {
+            "en": "First suggestion free · full guide paid",
+            "zh": "首条建议免费 · 完整指南付费"
+          },
+          "voiceover": {
+            "en": "Moved it, re-scanned, and my score went up. Try the free suggestion first.",
+            "zh": "挪好了，重新扫描，分数上去了。先试试免费建议吧。"
+          },
+          "evidence": [
+            {
+              "session": "S13",
+              "field": "user_statements"
+            },
+            {
+              "session": "S01",
+              "field": "user_statements"
+            }
+          ]
+        }
       ],
       "product_facts": [
-        {"text": "A free first suggestion is shown before any payment", "evidence": [{"session": "S03", "field": "observed_behavior"}]},
-        {"text": "The app shows a before/after ghosted preview of the new layout", "evidence": [{"session": "S05", "field": "observed_behavior"}]},
-        {"text": "The app gives desk-setup tips", "evidence": [{"session": "S11", "field": "observed_behavior"}]},
-        {"text": "Users can re-scan after a change and see the score move", "evidence": [{"session": "S13", "field": "observed_behavior"}]}
+        {
+          "text": {
+            "en": "A free first suggestion is shown before any payment",
+            "zh": "付款前会先展示一条免费建议"
+          },
+          "evidence": [
+            {
+              "session": "S03",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "The app shows a before/after ghosted preview of the new layout",
+            "zh": "应用会以半透明叠加的方式展示新布局的前后对比预览"
+          },
+          "evidence": [
+            {
+              "session": "S05",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "The app gives desk-setup tips",
+            "zh": "应用会提供书桌布置建议"
+          },
+          "evidence": [
+            {
+              "session": "S11",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "Users can re-scan after a change and see the score move",
+            "zh": "用户调整后可以重新扫描，并看到分数变化"
+          },
+          "evidence": [
+            {
+              "session": "S13",
+              "field": "observed_behavior"
+            }
+          ]
+        }
       ],
       "unsupported_capabilities": [
-        {"text": "Scanning on iPhones without LiDAR", "evidence": [{"session": "S02", "field": "observed_behavior"}]},
-        {"text": "A guaranteed score increase (one participant reported +20; it is not a promise)", "evidence": [{"session": "S13", "field": "user_statements"}]},
-        {"text": "Several rooms in one pass", "evidence": [{"session": "S09", "field": "user_statements"}]}
+        {
+          "text": {
+            "en": "Scanning on iPhones without LiDAR",
+            "zh": "在没有 LiDAR 的 iPhone 上扫描"
+          },
+          "evidence": [
+            {
+              "session": "S02",
+              "field": "observed_behavior"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "A guaranteed score increase (one participant reported +20; it is not a promise)",
+            "zh": "必然提升的分数（一位参与者报告提升了 20 分；这不是承诺）"
+          },
+          "evidence": [
+            {
+              "session": "S13",
+              "field": "user_statements"
+            }
+          ]
+        },
+        {
+          "text": {
+            "en": "Several rooms in one pass",
+            "zh": "一次扫描多个房间"
+          },
+          "evidence": [
+            {
+              "session": "S09",
+              "field": "user_statements"
+            }
+          ]
+        }
       ],
       "marketing_hypotheses": [
-        "A specific desk problem attracts higher-intent viewers than general feng shui content.",
-        "Saying 'needs iPhone Pro' in the video reduces installs that cannot scan.",
-        "Showing the real re-test score change makes the video worth saving; reach is not assumed or promised."
+        {
+          "en": "A specific desk problem attracts higher-intent viewers than general feng shui content.",
+          "zh": "具体的书桌问题比泛泛的风水内容更能吸引高意向观众。"
+        },
+        {
+          "en": "Saying 'needs iPhone Pro' in the video reduces installs that cannot scan.",
+          "zh": "在视频中说明“需要 iPhone Pro”可减少无法扫描的安装。"
+        },
+        {
+          "en": "Showing the real re-test score change makes the video worth saving; reach is not assumed or promised.",
+          "zh": "展示真实的复测分数变化会让视频值得收藏；不假设、也不承诺任何传播量。"
+        }
       ],
       "budget_cap_usd": 400,
       "baseline_metrics": [
-        {"key": "qs_rate", "label": "Qualified scan ÷ first open", "kind": "rate", "num": "qualified_scan", "den": "first_open"},
-        {"key": "refund_rate", "label": "Fully refunded ÷ verified purchases", "kind": "refund_rate"},
-        {"key": "cash_per_scan", "label": "Cash cost per qualified scan", "kind": "cash_per", "per": "qualified_scan"},
-        {"key": "reach", "label": "First opens the budget buys at the observed cost", "kind": "reach", "per": "first_open"}
+        {
+          "key": "qs_rate",
+          "label": {
+            "en": "Qualified scan ÷ first open",
+            "zh": "合格扫描 ÷ 首次打开"
+          },
+          "kind": "rate",
+          "num": "qualified_scan",
+          "den": "first_open"
+        },
+        {
+          "key": "refund_rate",
+          "label": {
+            "en": "Fully refunded ÷ verified purchases",
+            "zh": "全额退款 ÷ 已验证购买"
+          },
+          "kind": "refund_rate"
+        },
+        {
+          "key": "cash_per_scan",
+          "label": {
+            "en": "Cash cost per qualified scan",
+            "zh": "每次合格扫描的现金成本"
+          },
+          "kind": "cash_per",
+          "per": "qualified_scan"
+        },
+        {
+          "key": "reach",
+          "label": {
+            "en": "First opens the budget buys at the observed cost",
+            "zh": "按观测成本，预算可买到的首次打开数"
+          },
+          "kind": "reach",
+          "per": "first_open"
+        }
       ],
       "primary_metric": {
-        "name": "Qualified scan rate",
-        "numerator": "First opens from the video tracking links that reach a qualified scan (event log)",
-        "denominator": "First opens from those links (event log). Video views are never used as this denominator.",
-        "baseline": "{qs_rate} (TikTok_KOC, current data)"
+        "name": {
+          "en": "Qualified scan rate",
+          "zh": "合格扫描率"
+        },
+        "numerator": {
+          "en": "First opens from the video tracking links that reach a qualified scan (event log)",
+          "zh": "来自视频追踪链接、并完成合格扫描的首次打开（事件日志）"
+        },
+        "denominator": {
+          "en": "First opens from those links (event log). Video views are never used as this denominator.",
+          "zh": "来自这些链接的首次打开（事件日志）。视频播放量永远不作为此分母。"
+        },
+        "baseline": {
+          "en": "{qs_rate} (TikTok_KOC, current data)",
+          "zh": "{qs_rate}（TikTok_KOC，当前数据）"
+        }
       },
       "guardrails": [
-        {"name": "Refund share", "denominator": "Verified purchases from the tracked links", "rule": "Not above the TikTok_KOC baseline ({refund_rate})"},
-        {"name": "Cash cost per qualified scan", "denominator": "Qualified scans from the tracked links", "rule": "Not above the TikTok_KOC baseline ({cash_per_scan})"},
-        {"name": "Content diagnostic (separate funnel)", "denominator": "Video impressions → 3-second views → link clicks, from TikTok analytics", "rule": "Reported on its own; never mixed into app-funnel denominators"}
+        {
+          "name": {
+            "en": "Refund share",
+            "zh": "退款占比"
+          },
+          "denominator": {
+            "en": "Verified purchases from the tracked links",
+            "zh": "来自追踪链接的已验证购买"
+          },
+          "rule": {
+            "en": "Not above the TikTok_KOC baseline ({refund_rate})",
+            "zh": "不高于 TikTok_KOC 基线（{refund_rate}）"
+          }
+        },
+        {
+          "name": {
+            "en": "Cash cost per qualified scan",
+            "zh": "每次合格扫描的现金成本"
+          },
+          "denominator": {
+            "en": "Qualified scans from the tracked links",
+            "zh": "来自追踪链接的合格扫描"
+          },
+          "rule": {
+            "en": "Not above the TikTok_KOC baseline ({cash_per_scan})",
+            "zh": "不高于 TikTok_KOC 基线（{cash_per_scan}）"
+          }
+        },
+        {
+          "name": {
+            "en": "Content diagnostic (separate funnel)",
+            "zh": "内容诊断（独立漏斗）"
+          },
+          "denominator": {
+            "en": "Video impressions → 3-second views → link clicks, from TikTok analytics",
+            "zh": "视频曝光 → 3 秒观看 → 链接点击，来自 TikTok 数据分析"
+          },
+          "rule": {
+            "en": "Reported on its own; never mixed into app-funnel denominators",
+            "zh": "单独报告；永不混入应用漏斗的分母"
+          }
+        }
       ],
-      "stop_rule": "Stop when the {budget_cap} cap is spent or after 14 days. Pause a creator's video if its cohort's refund share rises above {refund_rate}. If fewer than 20 tracked first opens are reached (budget reach: {reach}), report the result as inconclusive and make no rate claims.",
-      "continue_rule": "Brief new creators with the same script only if, with at least 20 tracked first opens, qualified scan ÷ first open is above {qs_rate}, cash cost per qualified scan is at or below {cash_per_scan}, and no guardrail is breached."
+      "stop_rule": {
+        "en": "Stop when the {budget_cap} cap is spent or after 14 days. Pause a creator's video if its cohort's refund share rises above {refund_rate}. If fewer than 20 tracked first opens are reached (budget reach: {reach}), report the result as inconclusive and make no rate claims.",
+        "zh": "花完 {budget_cap} 预算上限或满 14 天即停止。若某位创作者视频带来的用户群退款占比升至 {refund_rate} 以上，则暂停该视频。若追踪到的首次打开不足 20 次（预算可覆盖：{reach}），结果记为不确定，不对任何转化率下结论。"
+      },
+      "continue_rule": {
+        "en": "Brief new creators with the same script only if, with at least 20 tracked first opens, qualified scan ÷ first open is above {qs_rate}, cash cost per qualified scan is at or below {cash_per_scan}, and no guardrail is breached.",
+        "zh": "仅当追踪到的首次打开至少 20 次、合格扫描 ÷ 首次打开高于 {qs_rate}、每次合格扫描的现金成本不高于 {cash_per_scan}，且没有触发任何保护指标时，才用同一脚本给新的创作者下简报。"
+      }
     }
   ]
 }

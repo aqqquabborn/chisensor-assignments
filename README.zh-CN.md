@@ -4,8 +4,8 @@
 
 [![Tests](https://github.com/aqqquabborn/chisensor-assignments/actions/workflows/pages.yml/badge.svg)](https://github.com/aqqquabborn/chisensor-assignments/actions)
 
-**▶ 在线演示：https://aqqquabborn.github.io/chisensor-assignments/**
-两份作业集中在一个页面，无需安装。
+**▶ 在线演示：https://aqqquabborn.github.io/chisensor-assignments/index.zh-CN.html**
+两份作业集中在一个页面，无需安装。提供中英文版本（页面、原型和报告中均可切换 EN / 中文）。
 
 ## 完成内容
 
@@ -19,7 +19,7 @@
 按渠道及整体计算的漏斗、成本与 CAC、3 个与证据关联的产品优先项，以及 2 张试验卡
 （ASO/商店价值表达卡和短内容卡）。替换任一输入文件，所有数字都会重新计算。
 
-每次更新都会自动运行测试：原型 29 项，工具 27 项，全部通过。
+每次更新都会自动运行测试：原型 30 项，工具 33 项，全部通过。
 
 ## 本地运行
 
@@ -28,7 +28,7 @@
 cd 01_room_prototype && npm install && npm run dev    # 打开 http://localhost:5173
 
 # 工具（Python 3.9+，无需额外依赖）
-cd 02_evidence_tool && python analyze.py              # 打开 out/report.html
+cd 02_evidence_tool && python analyze.py              # 打开 out/report.zh-CN.html（中文）或 out/report.html
 ```
 
 各目录下的 `README.md` 和 `AI_USAGE_LOG.md` 说明了实现细节、设计决策和 AI 使用记录（英文）。
