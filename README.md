@@ -1,6 +1,8 @@
+**English** · [中文](README.zh-CN.md)
+
 # ChiSensor — remote assignments
 
-[![Checks](https://github.com/aqqquabborn/chisensor-assignments/actions/workflows/pages.yml/badge.svg)](https://github.com/aqqquabborn/chisensor-assignments/actions)
+[![Tests](https://github.com/aqqquabborn/chisensor-assignments/actions/workflows/pages.yml/badge.svg)](https://github.com/aqqquabborn/chisensor-assignments/actions)
 
 **▶ Live demo: https://aqqquabborn.github.io/chisensor-assignments/**
 Both assignments in one page — nothing to install.
@@ -20,7 +22,7 @@ auditable HTML report. The report covers the funnel by channel, cost and CAC, th
 priorities linked to evidence, and two experiment cards (ASO and short content). Change any
 input file and every figure is recalculated.
 
-All checks pass automatically on every update: 29 for the prototype, 27 for the tool.
+Automated tests run on every update: 29 for the prototype, 27 for the tool, all passing.
 
 ## Run locally
 
