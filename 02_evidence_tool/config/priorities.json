@@ -1,0 +1,62 @@
+{
+  "_about": "Editable priority codebook. A session supports a candidate when its OBSERVED BEHAVIOR or USER STATEMENT contains one of match_terms (case-insensitive). Researcher inferences are displayed but never counted. Candidates with at least min_participants independent participants are ranked by participants, then by the size of the related event evidence; the top max_priorities are shown. event_evidence is one of: payment_delivery, scan_capture, free_to_paid, none. You can also edit these texts in the report (Edit priorities → Download) and save the file back here.",
+  "max_priorities": 3,
+  "min_participants": 2,
+  "candidates": [
+    {
+      "id": "PR-DELIVERY",
+      "title": "Make paid report delivery recoverable and visible",
+      "user_problem": "After paying, people cannot tell whether payment or the report is still in progress. Some abandon in pending, some wait minutes and think the app crashed, and some ask for their money back.",
+      "match_terms": ["pending", "stuck", "delivery", "took 5 mins", "crashed", "refund", "money back"],
+      "event_evidence": "payment_delivery",
+      "proposed_change": "One purchase-status screen driven by the transaction state (pending → verified → preparing report → delivered / failed). Automatic delivery retry plus a 'Restore my report' action keyed on the transaction ID, so a retry can never create a second purchase. Pending purchases show what is happening and when they expire.",
+      "acceptance_pass": "At cutoff in the next cohort: 0 verified payments without a delivered report, 0 purchases still pending, and no user with two charges for one report.",
+      "acceptance_fail": "Any verified payment undelivered at cutoff, any purchase left pending without a visible state, or any duplicate charge after a retry.",
+      "analyst_note": "S18 is internally inconsistent (observed: refund 'took too long'; said: 'processed smoothly'), so it is weak evidence about refund speed."
+    },
+    {
+      "id": "PR-SCAN-ENTRY",
+      "title": "Check device, permission and light before the scan, not during it",
+      "user_problem": "People hit a dead end at the start: an unsupported phone, a camera-permission prompt before they see any value, or a scan that fails twice in low light.",
+      "match_terms": ["lidar", "not supported", "isn't supported", "camera permission", "camera access", "low light", "lighting"],
+      "event_evidence": "scan_capture",
+      "proposed_change": "Detect LiDAR support on first open and explain the requirement before onboarding; ask for camera permission only when the user taps 'Start scan' after seeing a sample result; detect low light before capture and show one concrete fix (turn on the main light, hold for 3 seconds).",
+      "acceptance_pass": "In the next cohort the qualified → qualified scan rate is at or above the current baseline, and no research participant is blocked by device support, permission timing or light without a clear next step.",
+      "acceptance_fail": "Qualified → qualified scan rate falls below the current baseline, or a participant again reaches an unexplained device or permission dead end.",
+      "analyst_note": "P02 reports an unsupported phone in S02 but receives a report in the re-test S14; the device or build may have changed between sessions."
+    },
+    {
+      "id": "PR-PAYWALL-CLARITY",
+      "title": "Show what the paid guide contains, and its terms, before asking for payment",
+      "user_problem": "People are asked to pay before they understand what the full report adds over the free suggestion, and one paid without understanding the subscription terms.",
+      "match_terms": ["paywall", "pay before", "full report", "subscription terms", "what i expected", "isn't what i expected"],
+      "event_evidence": "free_to_paid",
+      "proposed_change": "Paywall shows one real, partly locked section of the user's own guide, a one-line list of what unlocks, and the plain-language price and renewal terms next to the button.",
+      "acceptance_pass": "Free suggestion → verified payer rate is not lower than the current baseline, and the share of verified purchases fully refunded is lower than the current baseline.",
+      "acceptance_fail": "Payer rate drops below baseline, or the refund share does not fall.",
+      "analyst_note": ""
+    },
+    {
+      "id": "PR-ACTIONABLE",
+      "title": "Make recommendations specific and explain the reasoning",
+      "user_problem": "Recommendations read as generic, and the mix of feng shui and environmental psychology confuses some people.",
+      "match_terms": ["generic", "unclear furniture", "confused", "superstition"],
+      "event_evidence": "none",
+      "proposed_change": "Each recommendation names the object, the move and the reason in environmental-psychology terms, using the user's own scan.",
+      "acceptance_pass": "In re-tests, no participant describes the recommendations as generic or confusing.",
+      "acceptance_fail": "A participant again describes them as generic or confusing.",
+      "analyst_note": ""
+    },
+    {
+      "id": "PR-MULTI-ROOM",
+      "title": "Scan several rooms in one pass",
+      "user_problem": "A participant wanted to cover several rooms in a single scan.",
+      "match_terms": ["multiple rooms", "multi-room"],
+      "event_evidence": "none",
+      "proposed_change": "Multi-room capture in one session.",
+      "acceptance_pass": "Participants complete a two-room scan without restarting.",
+      "acceptance_fail": "Participants restart the scan for the second room.",
+      "analyst_note": ""
+    }
+  ]
+}

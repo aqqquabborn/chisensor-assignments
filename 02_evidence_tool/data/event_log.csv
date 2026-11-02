@@ -1,0 +1,198 @@
+event_id,user_id,transaction_id,timestamp,event_type,channel_attribution
+E00001,U001,,2026-06-20 09:00:00,first_open,ASA_Brand
+E00001,U001,,2026-06-20 09:00:00,first_open,ASA_Brand
+E00002,U001,,2026-06-20 09:02:10,qualified,ASA_Brand
+E00003,U001,,2026-06-20 09:05:20,scan,ASA_Brand
+E00004,U001,,2026-06-20 09:08:30,free suggestion viewed,ASA_Brand
+E00005,U002,,2026-06-20 09:01:00,first_open,ASA_Brand
+E00006,U002,,2026-06-20 09:03:10,qualified,ASA_Brand
+E00007,U002,,2026-06-20 09:06:20,scan,ASA_Brand
+E00008,U002,,2026-06-20 09:09:30,free suggestion viewed,ASA_Brand
+E00009,U003,,2026-06-20 09:02:00,first_open,ASA_Brand
+E00010,U003,,2026-06-20 09:04:10,qualified,ASA_Brand
+E00011,U003,,2026-06-20 09:07:20,scan,ASA_Brand
+E00011,U003,,2026-06-20 09:07:20,scan,ASA_Brand
+E00012,U003,,2026-06-20 09:10:30,free suggestion viewed,ASA_Brand
+E00013,U004,,2026-06-20 09:03:00,first_open,ASA_Brand
+E00014,U004,,2026-06-20 09:05:10,qualified,ASA_Brand
+E00015,U004,,2026-06-20 09:08:20,scan,ASA_Brand
+E00016,U004,,2026-06-20 09:11:30,free suggestion viewed,ASA_Brand
+E00017,U005,,2026-06-20 09:04:00,first_open,ASA_Brand
+E00018,U005,,2026-06-20 09:06:10,qualified,ASA_Brand
+E00019,U005,,2026-06-20 09:09:20,scan,ASA_Brand
+E00020,U005,,2026-06-20 09:12:30,free suggestion viewed,ASA_Brand
+E00021,U006,,2026-06-20 09:05:00,first_open,ASA_Brand
+E00022,U006,,2026-06-20 09:07:10,qualified,ASA_Brand
+E00023,U006,,2026-06-20 09:10:20,scan,ASA_Brand
+E00024,U006,,2026-06-20 09:13:30,free suggestion viewed,ASA_Brand
+E00025,U007,,2026-06-20 09:06:00,first_open,ASA_Brand
+E00026,U007,,2026-06-20 09:08:10,qualified,ASA_Brand
+E00027,U007,,2026-06-20 09:11:20,scan,ASA_Brand
+E00028,U007,,2026-06-20 09:14:30,free suggestion viewed,ASA_Brand
+E00029,U008,,2026-06-20 09:07:00,first_open,ASA_Brand
+E00030,U008,,2026-06-20 09:09:10,qualified,ASA_Brand
+E00031,U008,,2026-06-20 09:12:20,scan,ASA_Brand
+E00032,U008,,2026-06-20 09:15:30,free suggestion viewed,ASA_Brand
+E00033,U009,,2026-06-20 09:08:00,first_open,ASA_Brand
+E00034,U009,,2026-06-20 09:10:10,qualified,ASA_Brand
+E00035,U010,,2026-06-20 09:09:00,first_open,ASA_Brand
+E00036,U011,,2026-06-20 09:00:00,first_open,ASA_Category
+E00036,U011,,2026-06-20 09:00:00,first_open,ASA_Category
+E00037,U011,,2026-06-20 09:02:10,qualified,ASA_Category
+E00038,U011,,2026-06-20 09:05:20,scan,ASA_Category
+E00039,U011,,2026-06-20 09:08:30,free suggestion viewed,ASA_Category
+E00040,U012,,2026-06-20 09:01:00,first_open,ASA_Category
+E00041,U012,,2026-06-20 09:03:10,qualified,ASA_Category
+E00042,U012,,2026-06-20 09:06:20,scan,ASA_Category
+E00043,U012,,2026-06-20 09:09:30,free suggestion viewed,ASA_Category
+E00044,U013,,2026-06-20 09:02:00,first_open,ASA_Category
+E00045,U013,,2026-06-20 09:04:10,qualified,ASA_Category
+E00046,U013,,2026-06-20 09:07:20,scan,ASA_Category
+E00047,U013,,2026-06-20 09:10:30,free suggestion viewed,ASA_Category
+E00048,U014,,2026-06-20 09:03:00,first_open,ASA_Category
+E00049,U014,,2026-06-20 09:05:10,qualified,ASA_Category
+E00050,U014,,2026-06-20 09:08:20,scan,ASA_Category
+E00051,U014,,2026-06-20 09:11:30,free suggestion viewed,ASA_Category
+E00052,U015,,2026-06-20 09:04:00,first_open,ASA_Category
+E00053,U015,,2026-06-20 09:06:10,qualified,ASA_Category
+E00054,U015,,2026-06-20 09:09:20,scan,ASA_Category
+E00055,U015,,2026-06-20 09:12:30,free suggestion viewed,ASA_Category
+E00056,U016,,2026-06-20 09:05:00,first_open,ASA_Category
+E00057,U016,,2026-06-20 09:07:10,qualified,ASA_Category
+E00058,U016,,2026-06-20 09:10:20,scan,ASA_Category
+E00059,U016,,2026-06-20 09:13:30,free suggestion viewed,ASA_Category
+E00060,U017,,2026-06-20 09:06:00,first_open,ASA_Category
+E00061,U017,,2026-06-20 09:08:10,qualified,ASA_Category
+E00062,U017,,2026-06-20 09:11:20,scan,ASA_Category
+E00063,U017,,2026-06-20 09:14:30,free suggestion viewed,ASA_Category
+E00064,U018,,2026-06-20 09:07:00,first_open,ASA_Category
+E00065,U018,,2026-06-20 09:09:10,qualified,ASA_Category
+E00066,U018,,2026-06-20 09:12:20,scan,ASA_Category
+E00067,U018,,2026-06-20 09:15:30,free suggestion viewed,ASA_Category
+E00068,U019,,2026-06-20 09:08:00,first_open,ASA_Category
+E00069,U019,,2026-06-20 09:10:10,qualified,ASA_Category
+E00070,U019,,2026-06-20 09:13:20,scan,ASA_Category
+E00071,U019,,2026-06-20 09:16:30,free suggestion viewed,ASA_Category
+E00072,U020,,2026-06-20 09:09:00,first_open,ASA_Category
+E00073,U020,,2026-06-20 09:11:10,qualified,ASA_Category
+E00074,U020,,2026-06-20 09:14:20,scan,ASA_Category
+E00075,U020,,2026-06-20 09:17:30,free suggestion viewed,ASA_Category
+E00076,U021,,2026-06-20 09:10:00,first_open,ASA_Category
+E00077,U021,,2026-06-20 09:12:10,qualified,ASA_Category
+E00078,U021,,2026-06-20 09:15:20,scan,ASA_Category
+E00079,U021,,2026-06-20 09:18:30,free suggestion viewed,ASA_Category
+E00080,U022,,2026-06-20 09:11:00,first_open,ASA_Category
+E00081,U022,,2026-06-20 09:13:10,qualified,ASA_Category
+E00082,U022,,2026-06-20 09:16:20,scan,ASA_Category
+E00083,U022,,2026-06-20 09:19:30,free suggestion viewed,ASA_Category
+E00084,U023,,2026-06-20 09:12:00,first_open,ASA_Category
+E00085,U023,,2026-06-20 09:14:10,qualified,ASA_Category
+E00086,U023,,2026-06-20 09:17:20,scan,ASA_Category
+E00087,U023,,2026-06-20 09:20:30,free suggestion viewed,ASA_Category
+E00088,U024,,2026-06-20 09:13:00,first_open,ASA_Category
+E00089,U024,,2026-06-20 09:15:10,qualified,ASA_Category
+E00090,U024,,2026-06-20 09:18:20,scan,ASA_Category
+E00091,U025,,2026-06-20 09:14:00,first_open,ASA_Category
+E00092,U025,,2026-06-20 09:16:10,qualified,ASA_Category
+E00093,U026,,2026-06-20 09:15:00,first_open,ASA_Category
+E00094,U026,,2026-06-20 09:17:10,qualified,ASA_Category
+E00095,U027,,2026-06-20 09:16:00,first_open,ASA_Category
+E00096,U028,,2026-06-20 09:17:00,first_open,ASA_Category
+E00097,U029,,2026-06-20 09:00:00,first_open,TikTok_KOC
+E00098,U029,,2026-06-20 09:02:10,qualified,TikTok_KOC
+E00099,U029,,2026-06-20 09:05:20,scan,TikTok_KOC
+E00100,U029,,2026-06-20 09:08:30,free suggestion viewed,TikTok_KOC
+E00101,U030,,2026-06-20 09:01:00,first_open,TikTok_KOC
+E00102,U030,,2026-06-20 09:03:10,qualified,TikTok_KOC
+E00103,U030,,2026-06-20 09:06:20,scan,TikTok_KOC
+E00104,U030,,2026-06-20 09:09:30,free suggestion viewed,TikTok_KOC
+E00105,U031,,2026-06-20 09:02:00,first_open,TikTok_KOC
+E00106,U031,,2026-06-20 09:04:10,qualified,TikTok_KOC
+E00107,U031,,2026-06-20 09:07:20,scan,TikTok_KOC
+E00108,U031,,2026-06-20 09:10:30,free suggestion viewed,TikTok_KOC
+E00109,U032,,2026-06-20 09:03:00,first_open,TikTok_KOC
+E00110,U032,,2026-06-20 09:05:10,qualified,TikTok_KOC
+E00111,U032,,2026-06-20 09:08:20,scan,TikTok_KOC
+E00112,U032,,2026-06-20 09:11:30,free suggestion viewed,TikTok_KOC
+E00113,U033,,2026-06-20 09:04:00,first_open,TikTok_KOC
+E00114,U033,,2026-06-20 09:06:10,qualified,TikTok_KOC
+E00115,U033,,2026-06-20 09:09:20,scan,TikTok_KOC
+E00116,U033,,2026-06-20 09:12:30,free suggestion viewed,TikTok_KOC
+E00117,U034,,2026-06-20 09:05:00,first_open,TikTok_KOC
+E00118,U034,,2026-06-20 09:07:10,qualified,TikTok_KOC
+E00119,U035,,2026-06-20 09:06:00,first_open,TikTok_KOC
+E00120,U035,,2026-06-20 09:08:10,qualified,TikTok_KOC
+E00121,U036,,2026-06-20 09:07:00,first_open,TikTok_KOC
+E00122,U037,,2026-06-20 09:08:00,first_open,TikTok_KOC
+E00123,U038,,2026-06-20 09:09:00,first_open,TikTok_KOC
+E00124,U039,,2026-06-20 09:00:00,first_open,Pinterest_SEO
+E00125,U039,,2026-06-20 09:02:10,qualified,Pinterest_SEO
+E00126,U039,,2026-06-20 09:05:20,scan,Pinterest_SEO
+E00127,U039,,2026-06-20 09:08:30,free suggestion viewed,Pinterest_SEO
+E00128,U040,,2026-06-20 09:01:00,first_open,Pinterest_SEO
+E00129,U040,,2026-06-20 09:03:10,qualified,Pinterest_SEO
+E00130,U040,,2026-06-20 09:06:20,scan,Pinterest_SEO
+E00131,U040,,2026-06-20 09:09:30,free suggestion viewed,Pinterest_SEO
+E00132,U041,,2026-06-20 09:02:00,first_open,Pinterest_SEO
+E00133,U041,,2026-06-20 09:04:10,qualified,Pinterest_SEO
+E00134,U041,,2026-06-20 09:07:20,scan,Pinterest_SEO
+E00135,U041,,2026-06-20 09:10:30,free suggestion viewed,Pinterest_SEO
+E00136,U042,,2026-06-20 09:03:00,first_open,Pinterest_SEO
+E00137,U042,,2026-06-20 09:05:10,qualified,Pinterest_SEO
+E00138,U042,,2026-06-20 09:08:20,scan,Pinterest_SEO
+E00139,U042,,2026-06-20 09:11:30,free suggestion viewed,Pinterest_SEO
+E00140,U043,,2026-06-20 09:04:00,first_open,Pinterest_SEO
+E00141,U043,,2026-06-20 09:06:10,qualified,Pinterest_SEO
+E00142,U043,,2026-06-20 09:09:20,scan,Pinterest_SEO
+E00143,U044,,2026-06-20 09:05:00,first_open,Pinterest_SEO
+E00144,U044,,2026-06-20 09:07:10,qualified,Pinterest_SEO
+E00145,U045,,2026-06-20 09:06:00,first_open,Pinterest_SEO
+E00146,U046,,2026-06-20 09:00:00,first_open,Reddit_Community
+E00147,U046,,2026-06-20 09:02:10,qualified,Reddit_Community
+E00148,U046,,2026-06-20 09:05:20,scan,Reddit_Community
+E00149,U046,,2026-06-20 09:08:30,free suggestion viewed,Reddit_Community
+E00150,U047,,2026-06-20 09:01:00,first_open,Reddit_Community
+E00151,U047,,2026-06-20 09:03:10,qualified,Reddit_Community
+E00152,U047,,2026-06-20 09:06:20,scan,Reddit_Community
+E00153,U047,,2026-06-20 09:09:30,free suggestion viewed,Reddit_Community
+E00154,U048,,2026-06-20 09:02:00,first_open,Reddit_Community
+E00155,U048,,2026-06-20 09:04:10,qualified,Reddit_Community
+E00156,U049,,2026-06-20 09:03:00,first_open,Reddit_Community
+E00157,U049,,2026-06-20 09:05:10,qualified,Reddit_Community
+E00158,U050,,2026-06-20 09:04:00,first_open,Reddit_Community
+E00159,U001,TX_U001_01,2026-06-20 10:10:00,purchases,ASA_Brand
+E00159,U001,TX_U001_01,2026-06-20 10:10:00,purchases,ASA_Brand
+E00160,U001,TX_U001_01,2026-06-20 10:11:00,verifications,ASA_Brand
+E00161,U001,TX_U001_01,2026-06-20 10:15:00,delivery,ASA_Brand
+E00162,U002,TX_U002_01,2026-06-20 10:10:00,purchases,ASA_Brand
+E00163,U002,TX_U002_01,2026-06-20 10:11:00,verifications,ASA_Brand
+E00164,U002,TX_U002_01,2026-06-20 10:11:30,verifications,ASA_Brand
+E00165,U002,TX_U002_01,2026-06-20 10:15:00,delivery,ASA_Brand
+E00166,U011,TX_U011_01,2026-06-20 10:10:00,purchases,ASA_Category
+E00167,U011,TX_U011_01,2026-06-20 10:11:00,verifications,ASA_Category
+E00168,U011,TX_U011_01,2026-06-20 10:15:00,delivery,ASA_Category
+E00169,U012,TX_U012_01,2026-06-20 10:10:00,purchases,ASA_Category
+E00170,U012,TX_U012_01,2026-06-20 10:11:00,verifications,ASA_Category
+E00171,U012,TX_U012_01,2026-06-20 10:11:30,verifications,ASA_Category
+E00172,U012,TX_U012_01,2026-06-20 10:15:00,delivery,ASA_Category
+E00173,U013,TX_U013_01,2026-06-20 10:10:00,purchases,ASA_Category
+E00174,U013,TX_U013_01,2026-06-20 10:11:00,verifications,ASA_Category
+E00175,U013,TX_U013_01,2026-06-20 10:15:00,delivery,ASA_Category
+E00176,U013,TX_U013_01,2026-06-21 14:00:00,refunds,ASA_Category
+E00177,U014,TX_U014_01,2026-06-20 10:10:00,purchases,ASA_Category
+E00178,U014,TX_U014_01,2026-06-20 10:11:00,verifications,ASA_Category
+E00179,U015,TX_U015_01,2026-06-20 10:10:00,purchases,ASA_Category
+E00180,U029,TX_U029_01,2026-06-20 10:10:00,purchases,TikTok_KOC
+E00181,U029,TX_U029_01,2026-06-20 10:11:00,verifications,TikTok_KOC
+E00182,U029,TX_U029_01,2026-06-20 10:15:00,delivery,TikTok_KOC
+E00183,U030,TX_U030_01,2026-06-20 10:10:00,purchases,TikTok_KOC
+E00184,U030,TX_U030_01,2026-06-20 10:11:00,verifications,TikTok_KOC
+E00185,U030,TX_U030_01,2026-06-20 10:15:00,delivery,TikTok_KOC
+E00186,U030,TX_U030_01,2026-06-21 14:00:00,refunds,TikTok_KOC
+E00187,U031,TX_U031_01,2026-06-20 10:10:00,purchases,TikTok_KOC
+E00188,U039,TX_U039_01,2026-06-20 10:10:00,purchases,Pinterest_SEO
+E00188,U039,TX_U039_01,2026-06-20 10:10:00,purchases,Pinterest_SEO
+E00189,U039,TX_U039_01,2026-06-20 10:11:00,verifications,Pinterest_SEO
+E00190,U039,TX_U039_01,2026-06-20 10:15:00,delivery,Pinterest_SEO
+E00191,U040,TX_U040_01,2026-06-20 10:10:00,purchases,Pinterest_SEO
+E00192,U040,TX_U040_01,2026-06-20 10:11:00,verifications,Pinterest_SEO

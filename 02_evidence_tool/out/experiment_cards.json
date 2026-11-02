@@ -1,0 +1,743 @@
+{
+  "input_sha256": {
+    "channel_data.csv": "736dcc856dc1a23e73c463662e489e7687efadd8ade3e5a3ea66cd5554112b05",
+    "event_log.csv": "18138dda48799cfc7391af08cbba0e62a1af2830066fe52aa2dd089f217bbdfe",
+    "experiments.json": "5007cd79a9091c95bc303ba705f8296991f06aa4482fae9766ac8a96c421095e",
+    "feedback_sessions.csv": "c0b179349880661ea5b0d22e4ec08340818762e07e263d9ac5705d6505a40d7b",
+    "params.json": "842f4bebf9bd8c228de242cecaca4248d8d0e5c11ee8f0a2a648ffb8fdc4962c",
+    "priorities.json": "42ad9a4ced73d9a8ecf7398a88ce259c1f1633edda04a9c0e7f08d42a47a6bf9"
+  },
+  "budget": {
+    "total": 900.0,
+    "cap": 1500.0,
+    "days": 14,
+    "within_cap": true
+  },
+  "cards": [
+    {
+      "id": "EXP-ASO-01",
+      "type": "aso",
+      "type_label": "ASO / store value expression",
+      "title": "Store page that shows the before/after layout and states the LiDAR requirement",
+      "status": "BLOCKED",
+      "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
+      "approved_for_launch": false,
+      "owner": "Growth PM, ASO (name to be assigned before launch)",
+      "channel": "App Store custom product page, served to ASA_Category search ads",
+      "baseline_channel": "ASA_Category",
+      "target_problem": "In ASA_Category traffic, 78% (14/18) of first opens reach a qualified scan and 25% (1/4) of verified purchases were fully refunded. The store page has to set the device requirement and the free-then-paid split before install, and show the before/after result people respond to.",
+      "linked_priorities": [
+        {
+          "id": "PR-SCAN-ENTRY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-PAYWALL-CLARITY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-DELIVERY",
+          "status": "FAIL"
+        }
+      ],
+      "evidence": [
+        {
+          "session_id": "S05",
+          "participant_id": "P05",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 6,
+          "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+          "broken": false
+        },
+        {
+          "session_id": "S02",
+          "participant_id": "P02",
+          "field": "observed_behavior",
+          "kind": "first observation",
+          "line": 3,
+          "text": "Encountered LIDAR error on standard iPhone, dropped off",
+          "broken": false
+        },
+        {
+          "session_id": "S01",
+          "participant_id": "P01",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 2,
+          "text": "Why do I have to pay before seeing the full report?",
+          "broken": false
+        },
+        {
+          "session_id": "S11",
+          "participant_id": "P11",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 12,
+          "text": "This helped me fix my desk facing the door issue.",
+          "broken": false
+        }
+      ],
+      "prerequisites": [
+        {
+          "text": "Given readiness flag: commercial delivery ready",
+          "met": false,
+          "detail": "given flag is false"
+        },
+        {
+          "text": "No verified payment left undelivered at cutoff",
+          "met": false,
+          "detail": "2 verified payments undelivered"
+        },
+        {
+          "text": "No purchase stuck in pending at cutoff",
+          "met": false,
+          "detail": "2 purchases pending"
+        },
+        {
+          "text": "PR-DELIVERY passes its acceptance check",
+          "met": false,
+          "detail": "PR-DELIVERY currently FAIL"
+        },
+        {
+          "text": "Custom product page analytics (impressions, installs) available in App Store Connect",
+          "met": null,
+          "detail": "needs human confirmation"
+        },
+        {
+          "text": "Screenshot is a real in-app before/after render, not a mock-up",
+          "met": null,
+          "detail": "needs human confirmation"
+        }
+      ],
+      "hypothesis": "If the ASA_Category custom product page leads with a real before/after layout and states the iPhone Pro (LiDAR) requirement in the first screenshot, then more of the people who install will reach a qualified scan, because they self-select on device and understand the free-then-paid value before installing.",
+      "copy": {
+        "title_concept": "ChiSensor: Room Layout Scan",
+        "subtitle": "See a better desk and bed layout",
+        "screenshot_caption": "Your room, rearranged — before you move anything",
+        "device_badge": "Requires iPhone Pro with LiDAR",
+        "footnote": "First suggestion free · full guide is a paid upgrade"
+      },
+      "product_facts": [
+        {
+          "text": "A free first suggestion is shown before any payment",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 4,
+              "text": "Completed free scan, viewed suggestion, purchased monthly sub",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app shows a before/after ghosted preview of the new layout",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Loved the Before/After ghosting preview, shared to Instagram",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Users can re-scan after a change and see the score move",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "observed_behavior",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "Completed second scan (re-test), unlocked annual plan",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "unsupported_capabilities": [
+        {
+          "text": "Scanning on iPhones without LiDAR",
+          "evidence": [
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Several rooms in one pass",
+          "evidence": [
+            {
+              "session_id": "S09",
+              "participant_id": "P09",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 10,
+              "text": "Can I scan multiple rooms with one pass?",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Direct shopping links for recommended furniture",
+          "evidence": [
+            {
+              "session_id": "S04",
+              "participant_id": "P04",
+              "field": "researcher_inferences",
+              "kind": "first observation",
+              "line": 5,
+              "text": "Remedy actionability must include direct e-commerce links (SKU mapping)",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "marketing_hypotheses": [
+        "A visible before/after on the store page raises install intent the way the in-app preview raised purchase intent for one participant.",
+        "Stating the LiDAR requirement up front may lower installs but raise the share of installs that reach a qualified scan.",
+        "Saying 'first suggestion free, full guide paid' before install reduces refunds caused by mismatched expectations."
+      ],
+      "baselines": {
+        "budget_cap": {
+          "label": "Budget cap",
+          "value": "$500.00"
+        },
+        "qs_rate": {
+          "label": "Qualified scan ÷ first open",
+          "value": "78% (14/18)"
+        },
+        "pay_rate": {
+          "label": "Verified first-time payer ÷ free suggestion viewed",
+          "value": "31% (4/13)"
+        },
+        "refund_rate": {
+          "label": "Fully refunded ÷ verified purchases",
+          "value": "25% (1/4)"
+        },
+        "cash_per_scan": {
+          "label": "Cash cost per qualified scan",
+          "value": "$85.71"
+        },
+        "reach": {
+          "label": "First opens the budget buys at the observed cost",
+          "value": "≈7 first opens at $66.67 cash each"
+        }
+      },
+      "primary_metric": {
+        "name": "Qualified scans per product page impression",
+        "numerator": "First opens from the custom product page that reach a qualified scan (event log)",
+        "denominator": "Custom product page impressions (App Store Connect). Store impressions only — no video plays.",
+        "baseline": "Not in the input data: measure the default page over the same 14 days as the control."
+      },
+      "guardrails": [
+        {
+          "name": "Qualified scan ÷ first open",
+          "denominator": "First opens from the page",
+          "rule": "Not below the ASA_Category baseline (78% (14/18))"
+        },
+        {
+          "name": "Refund share",
+          "denominator": "Verified purchases from the page cohort",
+          "rule": "Not above the ASA_Category baseline (25% (1/4))"
+        },
+        {
+          "name": "Cash cost per qualified scan",
+          "denominator": "Qualified scans from the page cohort",
+          "rule": "Not above the ASA_Category baseline ($85.71)"
+        }
+      ],
+      "budget_cap_usd": 500.0,
+      "stop_rule": "Stop when the $500.00 cap is spent or after 14 days. Stop early if any verified payment from this cohort stays undelivered for more than 24 hours, or if the refund share rises above 25% (1/4). If fewer than 20 first opens are reached (budget reach: ≈7 first opens at $66.67 cash each), report the result as inconclusive and make no rate claims.",
+      "continue_rule": "Roll the page out to all ASA traffic only if, with at least 20 first opens, qualified scans per impression beat the default page over the same period, qualified scan ÷ first open is at or above 78% (14/18), and no guardrail is breached.",
+      "copy_check": {
+        "passed": true,
+        "violations": [],
+        "terms_checked": [
+          "guarantee",
+          "guaranteed",
+          "viral",
+          "go viral",
+          "million views",
+          "search volume",
+          "#1",
+          "number one",
+          "any iphone",
+          "all iphones",
+          "every iphone",
+          "multi-room",
+          "multiple rooms",
+          "whole home",
+          "scientifically proven",
+          "100%"
+        ]
+      },
+      "keyword_intent_groups": [
+        {
+          "group": "Desk and home-office layout",
+          "intent": "Fix a work-from-home desk that feels draining",
+          "example_terms": [
+            "desk layout",
+            "home office setup",
+            "desk facing door"
+          ],
+          "evidence": [
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 12,
+              "text": "This helped me fix my desk facing the door issue.",
+              "broken": false
+            },
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 4,
+              "text": "This actually explained why my WFH setup feels draining.",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        },
+        {
+          "group": "Bedroom layout",
+          "intent": "Rearrange a bedroom without buying furniture",
+          "example_terms": [
+            "bedroom layout",
+            "furniture arrangement",
+            "room layout planner"
+          ],
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        },
+        {
+          "group": "Feng shui, explained",
+          "intent": "Feng shui with a practical, non-mystical explanation",
+          "example_terms": [
+            "feng shui bedroom",
+            "feng shui desk",
+            "room energy"
+          ],
+          "evidence": [
+            {
+              "session_id": "S10",
+              "participant_id": "P10",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 11,
+              "text": "The science explanation makes it feel less like superstition.",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        }
+      ],
+      "screenshot_concept": {
+        "frame": "Screenshot 1 of the custom product page",
+        "visual": "Split view of one real scan: the current layout on the left, the green ghosted 'after' position of the desk on the right",
+        "caption": "Your room, rearranged — before you move anything",
+        "badge": "Requires iPhone Pro with LiDAR",
+        "footnote": "First suggestion free · full guide is a paid upgrade"
+      }
+    },
+    {
+      "id": "EXP-CONTENT-01",
+      "type": "short_content",
+      "type_label": "Short content · 3-shot script",
+      "title": "3-shot 'desk facing the door' fix with a KOC creator",
+      "status": "BLOCKED",
+      "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
+      "approved_for_launch": false,
+      "owner": "Content lead, KOC program (name to be assigned before launch)",
+      "channel": "TikTok, existing KOC creators (TikTok_KOC), one tracking link per video",
+      "baseline_channel": "TikTok_KOC",
+      "target_problem": "In TikTok_KOC traffic, 50% (5/10) of first opens reach a qualified scan and 50% (1/2) of verified purchases were fully refunded. Content should attract people with a concrete desk problem and a LiDAR iPhone, and set the free-then-paid expectation.",
+      "linked_priorities": [
+        {
+          "id": "PR-SCAN-ENTRY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-PAYWALL-CLARITY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-DELIVERY",
+          "status": "FAIL"
+        }
+      ],
+      "evidence": [
+        {
+          "session_id": "S03",
+          "participant_id": "P03",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 4,
+          "text": "This actually explained why my WFH setup feels draining.",
+          "broken": false
+        },
+        {
+          "session_id": "S11",
+          "participant_id": "P11",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 12,
+          "text": "This helped me fix my desk facing the door issue.",
+          "broken": false
+        },
+        {
+          "session_id": "S05",
+          "participant_id": "P05",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 6,
+          "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+          "broken": false
+        },
+        {
+          "session_id": "S13",
+          "participant_id": "P01",
+          "field": "user_statements",
+          "kind": "re-test #1",
+          "line": 14,
+          "text": "I re-tested after moving my bed, score went up 20 points!",
+          "broken": false
+        },
+        {
+          "session_id": "S02",
+          "participant_id": "P02",
+          "field": "observed_behavior",
+          "kind": "first observation",
+          "line": 3,
+          "text": "Encountered LIDAR error on standard iPhone, dropped off",
+          "broken": false
+        }
+      ],
+      "prerequisites": [
+        {
+          "text": "Given readiness flag: commercial delivery ready",
+          "met": false,
+          "detail": "given flag is false"
+        },
+        {
+          "text": "No verified payment left undelivered at cutoff",
+          "met": false,
+          "detail": "2 verified payments undelivered"
+        },
+        {
+          "text": "No purchase stuck in pending at cutoff",
+          "met": false,
+          "detail": "2 purchases pending"
+        },
+        {
+          "text": "PR-DELIVERY passes its acceptance check",
+          "met": false,
+          "detail": "PR-DELIVERY currently FAIL"
+        },
+        {
+          "text": "Creator brief approved; creator shows the real app screen, no staged results",
+          "met": null,
+          "detail": "needs human confirmation"
+        },
+        {
+          "text": "One tracking link per video so first opens can be attributed",
+          "met": null,
+          "detail": "needs human confirmation"
+        }
+      ],
+      "hypothesis": "If KOC videos show one concrete desk-facing-the-door fix with the real before/after preview and say the app needs an iPhone Pro, then TikTok_KOC first opens will reach a qualified scan more often than the current baseline (50% (5/10)), because the video pre-qualifies people on problem and device.",
+      "copy": {
+        "hook": "Your desk is facing the door. Here's the 10-second fix.",
+        "caption": "Scanned my room with ChiSensor. First suggestion is free, the full guide is paid. Needs iPhone Pro (LiDAR).",
+        "call_to_action": "Scan your desk — first suggestion free"
+      },
+      "product_facts": [
+        {
+          "text": "A free first suggestion is shown before any payment",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 4,
+              "text": "Completed free scan, viewed suggestion, purchased monthly sub",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app shows a before/after ghosted preview of the new layout",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Loved the Before/After ghosting preview, shared to Instagram",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app gives desk-setup tips",
+          "evidence": [
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 12,
+              "text": "High engagement with desk setup optimization tips",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Users can re-scan after a change and see the score move",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "observed_behavior",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "Completed second scan (re-test), unlocked annual plan",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "unsupported_capabilities": [
+        {
+          "text": "Scanning on iPhones without LiDAR",
+          "evidence": [
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "A guaranteed score increase (one participant reported +20; it is not a promise)",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Several rooms in one pass",
+          "evidence": [
+            {
+              "session_id": "S09",
+              "participant_id": "P09",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 10,
+              "text": "Can I scan multiple rooms with one pass?",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "marketing_hypotheses": [
+        "A specific desk problem attracts higher-intent viewers than general feng shui content.",
+        "Saying 'needs iPhone Pro' in the video reduces installs that cannot scan.",
+        "Showing the real re-test score change makes the video worth saving; reach is not assumed or promised."
+      ],
+      "baselines": {
+        "budget_cap": {
+          "label": "Budget cap",
+          "value": "$400.00"
+        },
+        "qs_rate": {
+          "label": "Qualified scan ÷ first open",
+          "value": "50% (5/10)"
+        },
+        "refund_rate": {
+          "label": "Fully refunded ÷ verified purchases",
+          "value": "50% (1/2)"
+        },
+        "cash_per_scan": {
+          "label": "Cash cost per qualified scan",
+          "value": "$160.00"
+        },
+        "reach": {
+          "label": "First opens the budget buys at the observed cost",
+          "value": "≈5 first opens at $80.00 cash each"
+        }
+      },
+      "primary_metric": {
+        "name": "Qualified scan rate",
+        "numerator": "First opens from the video tracking links that reach a qualified scan (event log)",
+        "denominator": "First opens from those links (event log). Video views are never used as this denominator.",
+        "baseline": "50% (5/10) (TikTok_KOC, current data)"
+      },
+      "guardrails": [
+        {
+          "name": "Refund share",
+          "denominator": "Verified purchases from the tracked links",
+          "rule": "Not above the TikTok_KOC baseline (50% (1/2))"
+        },
+        {
+          "name": "Cash cost per qualified scan",
+          "denominator": "Qualified scans from the tracked links",
+          "rule": "Not above the TikTok_KOC baseline ($160.00)"
+        },
+        {
+          "name": "Content diagnostic (separate funnel)",
+          "denominator": "Video impressions → 3-second views → link clicks, from TikTok analytics",
+          "rule": "Reported on its own; never mixed into app-funnel denominators"
+        }
+      ],
+      "budget_cap_usd": 400.0,
+      "stop_rule": "Stop when the $400.00 cap is spent or after 14 days. Pause a creator's video if its cohort's refund share rises above 50% (1/2). If fewer than 20 tracked first opens are reached (budget reach: ≈5 first opens at $80.00 cash each), report the result as inconclusive and make no rate claims.",
+      "continue_rule": "Brief new creators with the same script only if, with at least 20 tracked first opens, qualified scan ÷ first open is above 50% (5/10), cash cost per qualified scan is at or below $160.00, and no guardrail is breached.",
+      "copy_check": {
+        "passed": true,
+        "violations": [],
+        "terms_checked": [
+          "guarantee",
+          "guaranteed",
+          "viral",
+          "go viral",
+          "million views",
+          "search volume",
+          "#1",
+          "number one",
+          "any iphone",
+          "all iphones",
+          "every iphone",
+          "multi-room",
+          "multiple rooms",
+          "whole home",
+          "scientifically proven",
+          "100%"
+        ]
+      },
+      "script": [
+        {
+          "shot": 1,
+          "seconds": "0–3",
+          "visual": "Creator at a work-from-home desk with their back to the door, glancing over their shoulder",
+          "on_screen_text": "Why does my desk feel draining?",
+          "voiceover": "My desk faced the door and I never felt focused.",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 4,
+              "text": "This actually explained why my WFH setup feels draining.",
+              "broken": false
+            },
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 12,
+              "text": "This helped me fix my desk facing the door issue.",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "shot": 2,
+          "seconds": "3–9",
+          "visual": "Screen recording: LiDAR scan of the same room, then the green ghosted 'after' position of the desk",
+          "on_screen_text": "Real scan · iPhone Pro with LiDAR",
+          "voiceover": "I scanned the room and it showed me where the desk should go, without buying anything.",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+              "broken": false
+            },
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "shot": 3,
+          "seconds": "9–15",
+          "visual": "Desk moved; creator re-scans and the app's real score change is shown on screen (no number promised in advance)",
+          "on_screen_text": "First suggestion free · full guide paid",
+          "voiceover": "Moved it, re-scanned, and my score went up. Try the free suggestion first.",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            },
+            {
+              "session_id": "S01",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 2,
+              "text": "Why do I have to pay before seeing the full report?",
+              "broken": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+session_id,participant_id,observed_behavior,user_statements,researcher_inferences
+S01,P01,Scanned room successfully on first try, hesitated at paywall,"Why do I have to pay before seeing the full report?",Friction at paywall requires soft-conversion or free preview expansion
+S02,P02,Encountered LIDAR error on standard iPhone, dropped off,"My phone isn't supported? That's annoying.",Hardware filtering in marketing needs immediate tightening to Pro models only
+S03,P03,Completed free scan, viewed suggestion, purchased monthly sub,"This actually explained why my WFH setup feels draining.",Strong product-market fit for WFH tech professionals (Sarah persona)
+S04,P04,Complained about unclear furniture recommendations,"The layout recommendations look too generic.",Remedy actionability must include direct e-commerce links (SKU mapping)
+S05,P05,Loved the Before/After ghosting preview, shared to Instagram,"Seeing the green ghosting preview made me want to buy the furniture.",Visual ghosting feature is the primary AHA moment and conversion driver
+S06,P06,Experienced payment pending state, abandoned app,"My payment is stuck in pending, fix this!",Payment gateway error handling and recovery path must be robust
+S07,P07,Successfully verified purchase, viewed full PDF report,"The report delivery finally came through, very cool tool.",Delivery state machine needs clearer status indicators for users
+S08,P08,Requested refund due to misunderstanding subscription terms,"I want my money back, this isn't what I expected.",Refund policy clarity and frictionless UX reduce customer support load
+S09,P09,Scanned entrance and bedroom, ignored living room,"Can I scan multiple rooms with one pass?",Multi-room support is a secondary expansion opportunity, not MVP
+S10,P10,Confused by western psychology vs feng shui blend,"The science explanation makes it feel less like superstition.",De-mystifying traditional concepts via environmental psychology builds trust
+S11,P11,High engagement with desk setup optimization tips,"This helped me fix my desk facing the door issue.",Desk setup / WFH ergonomics is the highest intent target keyword group
+S12,P12,Dropped off during initial camera permission request,"Why do you need camera access just for a demo?",Permission request timing must be delayed until post-Aha moment
+S13,P01,Completed second scan (re-test), unlocked annual plan,"I re-tested after moving my bed, score went up 20 points!",Re-test loop drives high retention and subscription renewal intent
+S14,P02,Encountered delivery pending state for report, recovered after retry,"Report took 5 mins to load, thought it crashed.",Async report generation needs a clear progress bar and recovery state
+S15,P03,Satisfied with desk repositioning advice, left positive review,"Best $5/mo investment for my home office setup.",Monthly subscription pricing aligns well with utility value perception
+S16,P04,Struggled with lighting calibration during scan,"The scan failed twice in low light.",Low-light scanning error recovery instructions need better UX copy
+S17,P05,Purchased via Pinterest ad link, high intent,"Found this through a Pinterest design board.",Pinterest visual search alignment is highly effective for high-intent traffic
+S18,P06,Asked for refund, process took too long,"Refund was processed smoothly.",Refund processed successfully; automated flow reduces CS overhead

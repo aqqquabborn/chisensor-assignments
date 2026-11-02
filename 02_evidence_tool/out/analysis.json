@@ -1,0 +1,2064 @@
+{
+  "version": "2.0.0",
+  "input_sha256": {
+    "channel_data.csv": "736dcc856dc1a23e73c463662e489e7687efadd8ade3e5a3ea66cd5554112b05",
+    "event_log.csv": "18138dda48799cfc7391af08cbba0e62a1af2830066fe52aa2dd089f217bbdfe",
+    "experiments.json": "5007cd79a9091c95bc303ba705f8296991f06aa4482fae9766ac8a96c421095e",
+    "feedback_sessions.csv": "c0b179349880661ea5b0d22e4ec08340818762e07e263d9ac5705d6505a40d7b",
+    "params.json": "842f4bebf9bd8c228de242cecaca4248d8d0e5c11ee8f0a2a648ffb8fdc4962c",
+    "priorities.json": "42ad9a4ced73d9a8ecf7398a88ce259c1f1633edda04a9c0e7f08d42a47a6bf9"
+  },
+  "cutoff": "2026-06-21 14:00:00",
+  "issues": [
+    {
+      "severity": "warning",
+      "code": "feedback.repaired_rows",
+      "message": "12 rows had unquoted commas in free text and were repaired around the quoted user statement: S01, S02, S03, S05, S06, S07, S09, S13, S14, S15, S17, S18. Please quote these fields at the source.",
+      "source": "feedback_sessions.csv"
+    },
+    {
+      "severity": "info",
+      "code": "event.exact_duplicates_removed",
+      "message": "5 exact duplicate event rows removed: E00001, E00011, E00036, E00159, E00188.",
+      "source": "event_log.csv"
+    },
+    {
+      "severity": "info",
+      "code": "feedback.no_product_version",
+      "message": "No product_version column: first observations and re-tests cannot be tied to a build, so re-test results may reflect a different version.",
+      "source": "feedback_sessions.csv"
+    }
+  ],
+  "input_counts": {
+    "event_log.csv": {
+      "rows": 197,
+      "exact_duplicates": 5,
+      "conflicting_duplicates": 0,
+      "invalid": 0,
+      "valid": 192
+    },
+    "channel_data.csv": {
+      "rows": 5,
+      "invalid": 0,
+      "valid": 5
+    },
+    "feedback_sessions.csv": {
+      "rows": 18,
+      "repaired": 12,
+      "duplicates": 0,
+      "invalid": 0,
+      "valid": 18
+    }
+  },
+  "funnel": {
+    "ASA_Brand": {
+      "first_open": 10,
+      "qualified": 9,
+      "qualified_scan": 8,
+      "free_suggestion_viewed": 8,
+      "first_time_payer": 2,
+      "delivered_guide": 2,
+      "unrefunded_delivered": 2
+    },
+    "ASA_Category": {
+      "first_open": 18,
+      "qualified": 16,
+      "qualified_scan": 14,
+      "free_suggestion_viewed": 13,
+      "first_time_payer": 4,
+      "delivered_guide": 3,
+      "unrefunded_delivered": 2
+    },
+    "TikTok_KOC": {
+      "first_open": 10,
+      "qualified": 7,
+      "qualified_scan": 5,
+      "free_suggestion_viewed": 5,
+      "first_time_payer": 2,
+      "delivered_guide": 2,
+      "unrefunded_delivered": 1
+    },
+    "Pinterest_SEO": {
+      "first_open": 7,
+      "qualified": 6,
+      "qualified_scan": 5,
+      "free_suggestion_viewed": 4,
+      "first_time_payer": 2,
+      "delivered_guide": 1,
+      "unrefunded_delivered": 1
+    },
+    "Reddit_Community": {
+      "first_open": 5,
+      "qualified": 4,
+      "qualified_scan": 2,
+      "free_suggestion_viewed": 2,
+      "first_time_payer": 0,
+      "delivered_guide": 0,
+      "unrefunded_delivered": 0
+    },
+    "Overall": {
+      "first_open": 50,
+      "qualified": 42,
+      "qualified_scan": 34,
+      "free_suggestion_viewed": 32,
+      "first_time_payer": 10,
+      "delivered_guide": 8,
+      "unrefunded_delivered": 6
+    }
+  },
+  "funnel_user_ids": {
+    "ASA_Brand": {
+      "first_open": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U009",
+        "U010"
+      ],
+      "qualified": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U009"
+      ],
+      "qualified_scan": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008"
+      ],
+      "free_suggestion_viewed": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008"
+      ],
+      "first_time_payer": [
+        "U001",
+        "U002"
+      ],
+      "delivered_guide": [
+        "U001",
+        "U002"
+      ],
+      "unrefunded_delivered": [
+        "U001",
+        "U002"
+      ]
+    },
+    "ASA_Category": {
+      "first_open": [
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024",
+        "U025",
+        "U026",
+        "U027",
+        "U028"
+      ],
+      "qualified": [
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024",
+        "U025",
+        "U026"
+      ],
+      "qualified_scan": [
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024"
+      ],
+      "free_suggestion_viewed": [
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023"
+      ],
+      "first_time_payer": [
+        "U011",
+        "U012",
+        "U013",
+        "U014"
+      ],
+      "delivered_guide": [
+        "U011",
+        "U012",
+        "U013"
+      ],
+      "unrefunded_delivered": [
+        "U011",
+        "U012"
+      ]
+    },
+    "TikTok_KOC": {
+      "first_open": [
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U034",
+        "U035",
+        "U036",
+        "U037",
+        "U038"
+      ],
+      "qualified": [
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U034",
+        "U035"
+      ],
+      "qualified_scan": [
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033"
+      ],
+      "free_suggestion_viewed": [
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033"
+      ],
+      "first_time_payer": [
+        "U029",
+        "U030"
+      ],
+      "delivered_guide": [
+        "U029",
+        "U030"
+      ],
+      "unrefunded_delivered": [
+        "U029"
+      ]
+    },
+    "Pinterest_SEO": {
+      "first_open": [
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043",
+        "U044",
+        "U045"
+      ],
+      "qualified": [
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043",
+        "U044"
+      ],
+      "qualified_scan": [
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043"
+      ],
+      "free_suggestion_viewed": [
+        "U039",
+        "U040",
+        "U041",
+        "U042"
+      ],
+      "first_time_payer": [
+        "U039",
+        "U040"
+      ],
+      "delivered_guide": [
+        "U039"
+      ],
+      "unrefunded_delivered": [
+        "U039"
+      ]
+    },
+    "Reddit_Community": {
+      "first_open": [
+        "U046",
+        "U047",
+        "U048",
+        "U049",
+        "U050"
+      ],
+      "qualified": [
+        "U046",
+        "U047",
+        "U048",
+        "U049"
+      ],
+      "qualified_scan": [
+        "U046",
+        "U047"
+      ],
+      "free_suggestion_viewed": [
+        "U046",
+        "U047"
+      ],
+      "first_time_payer": [],
+      "delivered_guide": [],
+      "unrefunded_delivered": []
+    },
+    "Overall": {
+      "first_open": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U009",
+        "U010",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024",
+        "U025",
+        "U026",
+        "U027",
+        "U028",
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U034",
+        "U035",
+        "U036",
+        "U037",
+        "U038",
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043",
+        "U044",
+        "U045",
+        "U046",
+        "U047",
+        "U048",
+        "U049",
+        "U050"
+      ],
+      "qualified": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U009",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024",
+        "U025",
+        "U026",
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U034",
+        "U035",
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043",
+        "U044",
+        "U046",
+        "U047",
+        "U048",
+        "U049"
+      ],
+      "qualified_scan": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U024",
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U043",
+        "U046",
+        "U047"
+      ],
+      "free_suggestion_viewed": [
+        "U001",
+        "U002",
+        "U003",
+        "U004",
+        "U005",
+        "U006",
+        "U007",
+        "U008",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U015",
+        "U016",
+        "U017",
+        "U018",
+        "U019",
+        "U020",
+        "U021",
+        "U022",
+        "U023",
+        "U029",
+        "U030",
+        "U031",
+        "U032",
+        "U033",
+        "U039",
+        "U040",
+        "U041",
+        "U042",
+        "U046",
+        "U047"
+      ],
+      "first_time_payer": [
+        "U001",
+        "U002",
+        "U011",
+        "U012",
+        "U013",
+        "U014",
+        "U029",
+        "U030",
+        "U039",
+        "U040"
+      ],
+      "delivered_guide": [
+        "U001",
+        "U002",
+        "U011",
+        "U012",
+        "U013",
+        "U029",
+        "U030",
+        "U039"
+      ],
+      "unrefunded_delivered": [
+        "U001",
+        "U002",
+        "U011",
+        "U012",
+        "U029",
+        "U039"
+      ]
+    }
+  },
+  "money": {
+    "ASA_Brand": {
+      "verified_tx": 2,
+      "refunded_tx": 0,
+      "pending_tx": 0,
+      "undelivered_tx": 0,
+      "duplicate_verification_tx": 1,
+      "collected_cash": 19.98,
+      "refunds": 0.0,
+      "commission": 3.0,
+      "net_after_commission": 16.98,
+      "pending_not_collected": 0.0,
+      "paid_not_delivered": 0.0
+    },
+    "ASA_Category": {
+      "verified_tx": 4,
+      "refunded_tx": 1,
+      "pending_tx": 1,
+      "undelivered_tx": 1,
+      "duplicate_verification_tx": 1,
+      "collected_cash": 39.96,
+      "refunds": 9.99,
+      "commission": 4.5,
+      "net_after_commission": 25.47,
+      "pending_not_collected": 9.99,
+      "paid_not_delivered": 9.99
+    },
+    "TikTok_KOC": {
+      "verified_tx": 2,
+      "refunded_tx": 1,
+      "pending_tx": 1,
+      "undelivered_tx": 0,
+      "duplicate_verification_tx": 0,
+      "collected_cash": 19.98,
+      "refunds": 9.99,
+      "commission": 1.5,
+      "net_after_commission": 8.49,
+      "pending_not_collected": 9.99,
+      "paid_not_delivered": 0.0
+    },
+    "Pinterest_SEO": {
+      "verified_tx": 2,
+      "refunded_tx": 0,
+      "pending_tx": 0,
+      "undelivered_tx": 1,
+      "duplicate_verification_tx": 0,
+      "collected_cash": 19.98,
+      "refunds": 0.0,
+      "commission": 3.0,
+      "net_after_commission": 16.98,
+      "pending_not_collected": 0.0,
+      "paid_not_delivered": 9.99
+    },
+    "Reddit_Community": {
+      "verified_tx": 0,
+      "refunded_tx": 0,
+      "pending_tx": 0,
+      "undelivered_tx": 0,
+      "duplicate_verification_tx": 0,
+      "collected_cash": 0.0,
+      "refunds": 0.0,
+      "commission": 0.0,
+      "net_after_commission": 0.0,
+      "pending_not_collected": 0.0,
+      "paid_not_delivered": 0.0
+    },
+    "Overall": {
+      "verified_tx": 10,
+      "refunded_tx": 2,
+      "pending_tx": 2,
+      "undelivered_tx": 2,
+      "duplicate_verification_tx": 2,
+      "collected_cash": 99.9,
+      "refunds": 19.98,
+      "commission": 11.99,
+      "net_after_commission": 67.93,
+      "pending_not_collected": 19.98,
+      "paid_not_delivered": 19.98
+    }
+  },
+  "costs": {
+    "ASA_Brand": {
+      "cash": 450.0,
+      "hours": 2.0,
+      "labor": 50.0,
+      "first_pay_cac_cash": 225.0,
+      "delivered_cac_cash": 225.0,
+      "delivered_cac_loaded": 250.0,
+      "cash_contribution": -433.02,
+      "contribution_after_labor": -483.02
+    },
+    "ASA_Category": {
+      "cash": 1200.0,
+      "hours": 3.0,
+      "labor": 75.0,
+      "first_pay_cac_cash": 300.0,
+      "delivered_cac_cash": 600.0,
+      "delivered_cac_loaded": 637.5,
+      "cash_contribution": -1174.53,
+      "contribution_after_labor": -1249.53
+    },
+    "TikTok_KOC": {
+      "cash": 800.0,
+      "hours": 10.0,
+      "labor": 250.0,
+      "first_pay_cac_cash": 400.0,
+      "delivered_cac_cash": 800.0,
+      "delivered_cac_loaded": 1050.0,
+      "cash_contribution": -791.51,
+      "contribution_after_labor": -1041.51
+    },
+    "Pinterest_SEO": {
+      "cash": 300.0,
+      "hours": 6.0,
+      "labor": 150.0,
+      "first_pay_cac_cash": 150.0,
+      "delivered_cac_cash": 300.0,
+      "delivered_cac_loaded": 450.0,
+      "cash_contribution": -283.02,
+      "contribution_after_labor": -433.02
+    },
+    "Reddit_Community": {
+      "cash": 150.0,
+      "hours": 4.0,
+      "labor": 100.0,
+      "first_pay_cac_cash": null,
+      "delivered_cac_cash": null,
+      "delivered_cac_loaded": null,
+      "cash_contribution": -150.0,
+      "contribution_after_labor": -250.0
+    },
+    "Overall": {
+      "cash": 2900.0,
+      "hours": 25.0,
+      "labor": 625.0,
+      "shared": 20.0,
+      "first_pay_cac_cash": 292.0,
+      "delivered_cac_cash": 486.67,
+      "delivered_cac_loaded": 590.83,
+      "cash_contribution": -2852.07,
+      "contribution_after_labor": -3477.07,
+      "complete": true
+    }
+  },
+  "shared_costs_counted_once": {
+    "inference": 8.0,
+    "tools": 12.0,
+    "total": 20.0
+  },
+  "transactions": [
+    {
+      "id": "TX_U001_01",
+      "user_id": "U001",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00159",
+        "E00160",
+        "E00161"
+      ],
+      "notes": [],
+      "status": "delivered",
+      "channel": "ASA_Brand"
+    },
+    {
+      "id": "TX_U002_01",
+      "user_id": "U002",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00162",
+        "E00163",
+        "E00164",
+        "E00165"
+      ],
+      "notes": [
+        "2 verification events (E00163, E00164) — counted as one sale"
+      ],
+      "status": "delivered",
+      "channel": "ASA_Brand"
+    },
+    {
+      "id": "TX_U011_01",
+      "user_id": "U011",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00166",
+        "E00167",
+        "E00168"
+      ],
+      "notes": [],
+      "status": "delivered",
+      "channel": "ASA_Category"
+    },
+    {
+      "id": "TX_U012_01",
+      "user_id": "U012",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00169",
+        "E00170",
+        "E00171",
+        "E00172"
+      ],
+      "notes": [
+        "2 verification events (E00170, E00171) — counted as one sale"
+      ],
+      "status": "delivered",
+      "channel": "ASA_Category"
+    },
+    {
+      "id": "TX_U013_01",
+      "user_id": "U013",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": true,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00173",
+        "E00174",
+        "E00175",
+        "E00176"
+      ],
+      "notes": [],
+      "status": "refunded",
+      "channel": "ASA_Category"
+    },
+    {
+      "id": "TX_U014_01",
+      "user_id": "U014",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": false,
+      "refunded": false,
+      "pending": false,
+      "undelivered": true,
+      "event_ids": [
+        "E00177",
+        "E00178"
+      ],
+      "notes": [],
+      "status": "paid, not delivered",
+      "channel": "ASA_Category"
+    },
+    {
+      "id": "TX_U015_01",
+      "user_id": "U015",
+      "verified": false,
+      "verified_at": null,
+      "delivered": false,
+      "refunded": false,
+      "pending": true,
+      "undelivered": false,
+      "event_ids": [
+        "E00179"
+      ],
+      "notes": [],
+      "status": "pending",
+      "channel": "ASA_Category"
+    },
+    {
+      "id": "TX_U029_01",
+      "user_id": "U029",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00180",
+        "E00181",
+        "E00182"
+      ],
+      "notes": [],
+      "status": "delivered",
+      "channel": "TikTok_KOC"
+    },
+    {
+      "id": "TX_U030_01",
+      "user_id": "U030",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": true,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00183",
+        "E00184",
+        "E00185",
+        "E00186"
+      ],
+      "notes": [],
+      "status": "refunded",
+      "channel": "TikTok_KOC"
+    },
+    {
+      "id": "TX_U031_01",
+      "user_id": "U031",
+      "verified": false,
+      "verified_at": null,
+      "delivered": false,
+      "refunded": false,
+      "pending": true,
+      "undelivered": false,
+      "event_ids": [
+        "E00187"
+      ],
+      "notes": [],
+      "status": "pending",
+      "channel": "TikTok_KOC"
+    },
+    {
+      "id": "TX_U039_01",
+      "user_id": "U039",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": true,
+      "refunded": false,
+      "pending": false,
+      "undelivered": false,
+      "event_ids": [
+        "E00188",
+        "E00189",
+        "E00190"
+      ],
+      "notes": [],
+      "status": "delivered",
+      "channel": "Pinterest_SEO"
+    },
+    {
+      "id": "TX_U040_01",
+      "user_id": "U040",
+      "verified": true,
+      "verified_at": "2026-06-20 10:11:00",
+      "delivered": false,
+      "refunded": false,
+      "pending": false,
+      "undelivered": true,
+      "event_ids": [
+        "E00191",
+        "E00192"
+      ],
+      "notes": [],
+      "status": "paid, not delivered",
+      "channel": "Pinterest_SEO"
+    }
+  ],
+  "research": {
+    "sessions": 18,
+    "participants": 12,
+    "retests": 6,
+    "multi_session_participants": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06"
+    ]
+  },
+  "priorities": [
+    {
+      "id": "PR-DELIVERY",
+      "title": "Make paid report delivery recoverable and visible",
+      "user_problem": "After paying, people cannot tell whether payment or the report is still in progress. Some abandon in pending, some wait minutes and think the app crashed, and some ask for their money back.",
+      "proposed_change": "One purchase-status screen driven by the transaction state (pending → verified → preparing report → delivered / failed). Automatic delivery retry plus a 'Restore my report' action keyed on the transaction ID, so a retry can never create a second purchase. Pending purchases show what is happening and when they expire.",
+      "acceptance_pass": "At cutoff in the next cohort: 0 verified payments without a delivered report, 0 purchases still pending, and no user with two charges for one report.",
+      "acceptance_fail": "Any verified payment undelivered at cutoff, any purchase left pending without a visible state, or any duplicate charge after a retry.",
+      "match_terms": [
+        "pending",
+        "stuck",
+        "delivery",
+        "took 5 mins",
+        "crashed",
+        "refund",
+        "money back"
+      ],
+      "event_evidence_kind": "payment_delivery",
+      "participants": [
+        "P02",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "citations": [
+        {
+          "session_id": "S06",
+          "participant_id": "P06",
+          "kind": "first observation",
+          "line": 7,
+          "matched": {
+            "observed_behavior": [
+              "pending"
+            ],
+            "user_statements": [
+              "pending",
+              "stuck"
+            ]
+          },
+          "observed_behavior": "Experienced payment pending state, abandoned app",
+          "user_statements": "My payment is stuck in pending, fix this!",
+          "researcher_inferences": "Payment gateway error handling and recovery path must be robust",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S07",
+          "participant_id": "P07",
+          "kind": "first observation",
+          "line": 8,
+          "matched": {
+            "user_statements": [
+              "delivery"
+            ]
+          },
+          "observed_behavior": "Successfully verified purchase, viewed full PDF report",
+          "user_statements": "The report delivery finally came through, very cool tool.",
+          "researcher_inferences": "Delivery state machine needs clearer status indicators for users",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S08",
+          "participant_id": "P08",
+          "kind": "first observation",
+          "line": 9,
+          "matched": {
+            "observed_behavior": [
+              "refund"
+            ],
+            "user_statements": [
+              "money back"
+            ]
+          },
+          "observed_behavior": "Requested refund due to misunderstanding subscription terms",
+          "user_statements": "I want my money back, this isn't what I expected.",
+          "researcher_inferences": "Refund policy clarity and frictionless UX reduce customer support load",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S14",
+          "participant_id": "P02",
+          "kind": "re-test #1",
+          "line": 15,
+          "matched": {
+            "observed_behavior": [
+              "pending",
+              "delivery"
+            ],
+            "user_statements": [
+              "took 5 mins",
+              "crashed"
+            ]
+          },
+          "observed_behavior": "Encountered delivery pending state for report, recovered after retry",
+          "user_statements": "Report took 5 mins to load, thought it crashed.",
+          "researcher_inferences": "Async report generation needs a clear progress bar and recovery state",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S18",
+          "participant_id": "P06",
+          "kind": "re-test #1",
+          "line": 19,
+          "matched": {
+            "observed_behavior": [
+              "refund"
+            ],
+            "user_statements": [
+              "refund"
+            ]
+          },
+          "observed_behavior": "Asked for refund, process took too long",
+          "user_statements": "Refund was processed smoothly.",
+          "researcher_inferences": "Refund processed successfully; automated flow reduces CS overhead",
+          "product_version": "not recorded"
+        }
+      ],
+      "event_evidence": {
+        "headline": "6 of 12 transactions did not end as a kept, delivered purchase",
+        "rows": [
+          {
+            "label": "Verified but not delivered",
+            "count": 2,
+            "ids": [
+              "TX_U014_01",
+              "TX_U040_01"
+            ]
+          },
+          {
+            "label": "Pending, never verified",
+            "count": 2,
+            "ids": [
+              "TX_U015_01",
+              "TX_U031_01"
+            ]
+          },
+          {
+            "label": "Full refund after delivery",
+            "count": 2,
+            "ids": [
+              "TX_U013_01",
+              "TX_U030_01"
+            ]
+          },
+          {
+            "label": "Duplicate verification events",
+            "count": 2,
+            "ids": [
+              "TX_U002_01",
+              "TX_U012_01"
+            ]
+          }
+        ],
+        "magnitude": 6,
+        "baseline": "2 undelivered, 2 pending"
+      },
+      "current_status": "FAIL",
+      "uncertainty": [
+        "4 of 12 research participants; 3 first-observation and 2 re-test session(s).",
+        "Research participants are a separate cohort from event-log users, so event evidence is related, not the same people.",
+        "Product version is not recorded, so re-tests may reflect a different build."
+      ],
+      "analyst_note": "S18 is internally inconsistent (observed: refund 'took too long'; said: 'processed smoothly'), so it is weak evidence about refund speed.",
+      "eligible": true,
+      "rank": 1
+    },
+    {
+      "id": "PR-SCAN-ENTRY",
+      "title": "Check device, permission and light before the scan, not during it",
+      "user_problem": "People hit a dead end at the start: an unsupported phone, a camera-permission prompt before they see any value, or a scan that fails twice in low light.",
+      "proposed_change": "Detect LiDAR support on first open and explain the requirement before onboarding; ask for camera permission only when the user taps 'Start scan' after seeing a sample result; detect low light before capture and show one concrete fix (turn on the main light, hold for 3 seconds).",
+      "acceptance_pass": "In the next cohort the qualified → qualified scan rate is at or above the current baseline, and no research participant is blocked by device support, permission timing or light without a clear next step.",
+      "acceptance_fail": "Qualified → qualified scan rate falls below the current baseline, or a participant again reaches an unexplained device or permission dead end.",
+      "match_terms": [
+        "lidar",
+        "not supported",
+        "isn't supported",
+        "camera permission",
+        "camera access",
+        "low light",
+        "lighting"
+      ],
+      "event_evidence_kind": "scan_capture",
+      "participants": [
+        "P02",
+        "P04",
+        "P12"
+      ],
+      "citations": [
+        {
+          "session_id": "S02",
+          "participant_id": "P02",
+          "kind": "first observation",
+          "line": 3,
+          "matched": {
+            "observed_behavior": [
+              "lidar"
+            ],
+            "user_statements": [
+              "isn't supported"
+            ]
+          },
+          "observed_behavior": "Encountered LIDAR error on standard iPhone, dropped off",
+          "user_statements": "My phone isn't supported? That's annoying.",
+          "researcher_inferences": "Hardware filtering in marketing needs immediate tightening to Pro models only",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S12",
+          "participant_id": "P12",
+          "kind": "first observation",
+          "line": 13,
+          "matched": {
+            "observed_behavior": [
+              "camera permission"
+            ],
+            "user_statements": [
+              "camera access"
+            ]
+          },
+          "observed_behavior": "Dropped off during initial camera permission request",
+          "user_statements": "Why do you need camera access just for a demo?",
+          "researcher_inferences": "Permission request timing must be delayed until post-Aha moment",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S16",
+          "participant_id": "P04",
+          "kind": "re-test #1",
+          "line": 17,
+          "matched": {
+            "observed_behavior": [
+              "lighting"
+            ],
+            "user_statements": [
+              "low light"
+            ]
+          },
+          "observed_behavior": "Struggled with lighting calibration during scan",
+          "user_statements": "The scan failed twice in low light.",
+          "researcher_inferences": "Low-light scanning error recovery instructions need better UX copy",
+          "product_version": "not recorded"
+        }
+      ],
+      "event_evidence": {
+        "headline": "8 of 42 qualified users never completed a qualified scan",
+        "rows": [
+          {
+            "label": "Qualified → qualified scan",
+            "count": 34,
+            "of": 42,
+            "ids": []
+          }
+        ],
+        "magnitude": 8,
+        "baseline": "34/42 qualified users scanned"
+      },
+      "current_status": "BASELINE SET",
+      "uncertainty": [
+        "3 of 12 research participants; 2 first-observation and 1 re-test session(s).",
+        "Research participants are a separate cohort from event-log users, so event evidence is related, not the same people.",
+        "Product version is not recorded, so re-tests may reflect a different build."
+      ],
+      "analyst_note": "P02 reports an unsupported phone in S02 but receives a report in the re-test S14; the device or build may have changed between sessions.",
+      "eligible": true,
+      "rank": 2
+    },
+    {
+      "id": "PR-PAYWALL-CLARITY",
+      "title": "Show what the paid guide contains, and its terms, before asking for payment",
+      "user_problem": "People are asked to pay before they understand what the full report adds over the free suggestion, and one paid without understanding the subscription terms.",
+      "proposed_change": "Paywall shows one real, partly locked section of the user's own guide, a one-line list of what unlocks, and the plain-language price and renewal terms next to the button.",
+      "acceptance_pass": "Free suggestion → verified payer rate is not lower than the current baseline, and the share of verified purchases fully refunded is lower than the current baseline.",
+      "acceptance_fail": "Payer rate drops below baseline, or the refund share does not fall.",
+      "match_terms": [
+        "paywall",
+        "pay before",
+        "full report",
+        "subscription terms",
+        "what i expected",
+        "isn't what i expected"
+      ],
+      "event_evidence_kind": "free_to_paid",
+      "participants": [
+        "P01",
+        "P08"
+      ],
+      "citations": [
+        {
+          "session_id": "S01",
+          "participant_id": "P01",
+          "kind": "first observation",
+          "line": 2,
+          "matched": {
+            "observed_behavior": [
+              "paywall"
+            ],
+            "user_statements": [
+              "pay before",
+              "full report"
+            ]
+          },
+          "observed_behavior": "Scanned room successfully on first try, hesitated at paywall",
+          "user_statements": "Why do I have to pay before seeing the full report?",
+          "researcher_inferences": "Friction at paywall requires soft-conversion or free preview expansion",
+          "product_version": "not recorded"
+        },
+        {
+          "session_id": "S08",
+          "participant_id": "P08",
+          "kind": "first observation",
+          "line": 9,
+          "matched": {
+            "observed_behavior": [
+              "subscription terms"
+            ],
+            "user_statements": [
+              "what i expected",
+              "isn't what i expected"
+            ]
+          },
+          "observed_behavior": "Requested refund due to misunderstanding subscription terms",
+          "user_statements": "I want my money back, this isn't what I expected.",
+          "researcher_inferences": "Refund policy clarity and frictionless UX reduce customer support load",
+          "product_version": "not recorded"
+        }
+      ],
+      "event_evidence": {
+        "headline": "22 of 32 users who saw the free suggestion did not pay",
+        "rows": [
+          {
+            "label": "Free suggestion → verified first-time payer",
+            "count": 10,
+            "of": 32,
+            "ids": []
+          },
+          {
+            "label": "Verified purchases fully refunded",
+            "count": 2,
+            "of": 10,
+            "ids": []
+          }
+        ],
+        "magnitude": 22,
+        "baseline": "10/32 paid; 2/10 refunded"
+      },
+      "current_status": "BASELINE SET",
+      "uncertainty": [
+        "2 of 12 research participants; 2 first-observation and 0 re-test session(s).",
+        "Research participants are a separate cohort from event-log users, so event evidence is related, not the same people."
+      ],
+      "analyst_note": "",
+      "eligible": true,
+      "rank": 3
+    }
+  ],
+  "not_selected": [
+    {
+      "id": "PR-ACTIONABLE",
+      "title": "Make recommendations specific and explain the reasoning",
+      "participants": [
+        "P04",
+        "P10"
+      ],
+      "sessions": [
+        "S04",
+        "S10"
+      ],
+      "reason": "ranked below the top 3: 2 participants, event evidence 0"
+    },
+    {
+      "id": "PR-MULTI-ROOM",
+      "title": "Scan several rooms in one pass",
+      "participants": [
+        "P09"
+      ],
+      "sessions": [
+        "S09"
+      ],
+      "reason": "1 participant(s); minimum is 2"
+    }
+  ],
+  "experiment_cards": [
+    {
+      "id": "EXP-ASO-01",
+      "type": "aso",
+      "type_label": "ASO / store value expression",
+      "title": "Store page that shows the before/after layout and states the LiDAR requirement",
+      "status": "BLOCKED",
+      "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
+      "approved_for_launch": false,
+      "owner": "Growth PM, ASO (name to be assigned before launch)",
+      "channel": "App Store custom product page, served to ASA_Category search ads",
+      "baseline_channel": "ASA_Category",
+      "target_problem": "In ASA_Category traffic, 78% (14/18) of first opens reach a qualified scan and 25% (1/4) of verified purchases were fully refunded. The store page has to set the device requirement and the free-then-paid split before install, and show the before/after result people respond to.",
+      "linked_priorities": [
+        {
+          "id": "PR-SCAN-ENTRY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-PAYWALL-CLARITY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-DELIVERY",
+          "status": "FAIL"
+        }
+      ],
+      "evidence": [
+        {
+          "session_id": "S05",
+          "participant_id": "P05",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 6,
+          "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+          "broken": false
+        },
+        {
+          "session_id": "S02",
+          "participant_id": "P02",
+          "field": "observed_behavior",
+          "kind": "first observation",
+          "line": 3,
+          "text": "Encountered LIDAR error on standard iPhone, dropped off",
+          "broken": false
+        },
+        {
+          "session_id": "S01",
+          "participant_id": "P01",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 2,
+          "text": "Why do I have to pay before seeing the full report?",
+          "broken": false
+        },
+        {
+          "session_id": "S11",
+          "participant_id": "P11",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 12,
+          "text": "This helped me fix my desk facing the door issue.",
+          "broken": false
+        }
+      ],
+      "prerequisites": [
+        {
+          "text": "Given readiness flag: commercial delivery ready",
+          "met": false,
+          "detail": "given flag is false"
+        },
+        {
+          "text": "No verified payment left undelivered at cutoff",
+          "met": false,
+          "detail": "2 verified payments undelivered"
+        },
+        {
+          "text": "No purchase stuck in pending at cutoff",
+          "met": false,
+          "detail": "2 purchases pending"
+        },
+        {
+          "text": "PR-DELIVERY passes its acceptance check",
+          "met": false,
+          "detail": "PR-DELIVERY currently FAIL"
+        },
+        {
+          "text": "Custom product page analytics (impressions, installs) available in App Store Connect",
+          "met": null,
+          "detail": "needs human confirmation"
+        },
+        {
+          "text": "Screenshot is a real in-app before/after render, not a mock-up",
+          "met": null,
+          "detail": "needs human confirmation"
+        }
+      ],
+      "hypothesis": "If the ASA_Category custom product page leads with a real before/after layout and states the iPhone Pro (LiDAR) requirement in the first screenshot, then more of the people who install will reach a qualified scan, because they self-select on device and understand the free-then-paid value before installing.",
+      "copy": {
+        "title_concept": "ChiSensor: Room Layout Scan",
+        "subtitle": "See a better desk and bed layout",
+        "screenshot_caption": "Your room, rearranged — before you move anything",
+        "device_badge": "Requires iPhone Pro with LiDAR",
+        "footnote": "First suggestion free · full guide is a paid upgrade"
+      },
+      "product_facts": [
+        {
+          "text": "A free first suggestion is shown before any payment",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 4,
+              "text": "Completed free scan, viewed suggestion, purchased monthly sub",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app shows a before/after ghosted preview of the new layout",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Loved the Before/After ghosting preview, shared to Instagram",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Users can re-scan after a change and see the score move",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "observed_behavior",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "Completed second scan (re-test), unlocked annual plan",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "unsupported_capabilities": [
+        {
+          "text": "Scanning on iPhones without LiDAR",
+          "evidence": [
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Several rooms in one pass",
+          "evidence": [
+            {
+              "session_id": "S09",
+              "participant_id": "P09",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 10,
+              "text": "Can I scan multiple rooms with one pass?",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Direct shopping links for recommended furniture",
+          "evidence": [
+            {
+              "session_id": "S04",
+              "participant_id": "P04",
+              "field": "researcher_inferences",
+              "kind": "first observation",
+              "line": 5,
+              "text": "Remedy actionability must include direct e-commerce links (SKU mapping)",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "marketing_hypotheses": [
+        "A visible before/after on the store page raises install intent the way the in-app preview raised purchase intent for one participant.",
+        "Stating the LiDAR requirement up front may lower installs but raise the share of installs that reach a qualified scan.",
+        "Saying 'first suggestion free, full guide paid' before install reduces refunds caused by mismatched expectations."
+      ],
+      "baselines": {
+        "budget_cap": {
+          "label": "Budget cap",
+          "value": "$500.00"
+        },
+        "qs_rate": {
+          "label": "Qualified scan ÷ first open",
+          "value": "78% (14/18)"
+        },
+        "pay_rate": {
+          "label": "Verified first-time payer ÷ free suggestion viewed",
+          "value": "31% (4/13)"
+        },
+        "refund_rate": {
+          "label": "Fully refunded ÷ verified purchases",
+          "value": "25% (1/4)"
+        },
+        "cash_per_scan": {
+          "label": "Cash cost per qualified scan",
+          "value": "$85.71"
+        },
+        "reach": {
+          "label": "First opens the budget buys at the observed cost",
+          "value": "≈7 first opens at $66.67 cash each"
+        }
+      },
+      "primary_metric": {
+        "name": "Qualified scans per product page impression",
+        "numerator": "First opens from the custom product page that reach a qualified scan (event log)",
+        "denominator": "Custom product page impressions (App Store Connect). Store impressions only — no video plays.",
+        "baseline": "Not in the input data: measure the default page over the same 14 days as the control."
+      },
+      "guardrails": [
+        {
+          "name": "Qualified scan ÷ first open",
+          "denominator": "First opens from the page",
+          "rule": "Not below the ASA_Category baseline (78% (14/18))"
+        },
+        {
+          "name": "Refund share",
+          "denominator": "Verified purchases from the page cohort",
+          "rule": "Not above the ASA_Category baseline (25% (1/4))"
+        },
+        {
+          "name": "Cash cost per qualified scan",
+          "denominator": "Qualified scans from the page cohort",
+          "rule": "Not above the ASA_Category baseline ($85.71)"
+        }
+      ],
+      "budget_cap_usd": 500.0,
+      "stop_rule": "Stop when the $500.00 cap is spent or after 14 days. Stop early if any verified payment from this cohort stays undelivered for more than 24 hours, or if the refund share rises above 25% (1/4). If fewer than 20 first opens are reached (budget reach: ≈7 first opens at $66.67 cash each), report the result as inconclusive and make no rate claims.",
+      "continue_rule": "Roll the page out to all ASA traffic only if, with at least 20 first opens, qualified scans per impression beat the default page over the same period, qualified scan ÷ first open is at or above 78% (14/18), and no guardrail is breached.",
+      "copy_check": {
+        "passed": true,
+        "violations": [],
+        "terms_checked": [
+          "guarantee",
+          "guaranteed",
+          "viral",
+          "go viral",
+          "million views",
+          "search volume",
+          "#1",
+          "number one",
+          "any iphone",
+          "all iphones",
+          "every iphone",
+          "multi-room",
+          "multiple rooms",
+          "whole home",
+          "scientifically proven",
+          "100%"
+        ]
+      },
+      "keyword_intent_groups": [
+        {
+          "group": "Desk and home-office layout",
+          "intent": "Fix a work-from-home desk that feels draining",
+          "example_terms": [
+            "desk layout",
+            "home office setup",
+            "desk facing door"
+          ],
+          "evidence": [
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 12,
+              "text": "This helped me fix my desk facing the door issue.",
+              "broken": false
+            },
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 4,
+              "text": "This actually explained why my WFH setup feels draining.",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        },
+        {
+          "group": "Bedroom layout",
+          "intent": "Rearrange a bedroom without buying furniture",
+          "example_terms": [
+            "bedroom layout",
+            "furniture arrangement",
+            "room layout planner"
+          ],
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        },
+        {
+          "group": "Feng shui, explained",
+          "intent": "Feng shui with a practical, non-mystical explanation",
+          "example_terms": [
+            "feng shui bedroom",
+            "feng shui desk",
+            "room energy"
+          ],
+          "evidence": [
+            {
+              "session_id": "S10",
+              "participant_id": "P10",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 11,
+              "text": "The science explanation makes it feel less like superstition.",
+              "broken": false
+            }
+          ],
+          "search_volume": "not provided — not estimated"
+        }
+      ],
+      "screenshot_concept": {
+        "frame": "Screenshot 1 of the custom product page",
+        "visual": "Split view of one real scan: the current layout on the left, the green ghosted 'after' position of the desk on the right",
+        "caption": "Your room, rearranged — before you move anything",
+        "badge": "Requires iPhone Pro with LiDAR",
+        "footnote": "First suggestion free · full guide is a paid upgrade"
+      }
+    },
+    {
+      "id": "EXP-CONTENT-01",
+      "type": "short_content",
+      "type_label": "Short content · 3-shot script",
+      "title": "3-shot 'desk facing the door' fix with a KOC creator",
+      "status": "BLOCKED",
+      "status_reason": "Commercial delivery is not ready: given flag is false; 2 verified payments undelivered; 2 purchases pending. Draft only — not approved for launch.",
+      "approved_for_launch": false,
+      "owner": "Content lead, KOC program (name to be assigned before launch)",
+      "channel": "TikTok, existing KOC creators (TikTok_KOC), one tracking link per video",
+      "baseline_channel": "TikTok_KOC",
+      "target_problem": "In TikTok_KOC traffic, 50% (5/10) of first opens reach a qualified scan and 50% (1/2) of verified purchases were fully refunded. Content should attract people with a concrete desk problem and a LiDAR iPhone, and set the free-then-paid expectation.",
+      "linked_priorities": [
+        {
+          "id": "PR-SCAN-ENTRY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-PAYWALL-CLARITY",
+          "status": "BASELINE SET"
+        },
+        {
+          "id": "PR-DELIVERY",
+          "status": "FAIL"
+        }
+      ],
+      "evidence": [
+        {
+          "session_id": "S03",
+          "participant_id": "P03",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 4,
+          "text": "This actually explained why my WFH setup feels draining.",
+          "broken": false
+        },
+        {
+          "session_id": "S11",
+          "participant_id": "P11",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 12,
+          "text": "This helped me fix my desk facing the door issue.",
+          "broken": false
+        },
+        {
+          "session_id": "S05",
+          "participant_id": "P05",
+          "field": "user_statements",
+          "kind": "first observation",
+          "line": 6,
+          "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+          "broken": false
+        },
+        {
+          "session_id": "S13",
+          "participant_id": "P01",
+          "field": "user_statements",
+          "kind": "re-test #1",
+          "line": 14,
+          "text": "I re-tested after moving my bed, score went up 20 points!",
+          "broken": false
+        },
+        {
+          "session_id": "S02",
+          "participant_id": "P02",
+          "field": "observed_behavior",
+          "kind": "first observation",
+          "line": 3,
+          "text": "Encountered LIDAR error on standard iPhone, dropped off",
+          "broken": false
+        }
+      ],
+      "prerequisites": [
+        {
+          "text": "Given readiness flag: commercial delivery ready",
+          "met": false,
+          "detail": "given flag is false"
+        },
+        {
+          "text": "No verified payment left undelivered at cutoff",
+          "met": false,
+          "detail": "2 verified payments undelivered"
+        },
+        {
+          "text": "No purchase stuck in pending at cutoff",
+          "met": false,
+          "detail": "2 purchases pending"
+        },
+        {
+          "text": "PR-DELIVERY passes its acceptance check",
+          "met": false,
+          "detail": "PR-DELIVERY currently FAIL"
+        },
+        {
+          "text": "Creator brief approved; creator shows the real app screen, no staged results",
+          "met": null,
+          "detail": "needs human confirmation"
+        },
+        {
+          "text": "One tracking link per video so first opens can be attributed",
+          "met": null,
+          "detail": "needs human confirmation"
+        }
+      ],
+      "hypothesis": "If KOC videos show one concrete desk-facing-the-door fix with the real before/after preview and say the app needs an iPhone Pro, then TikTok_KOC first opens will reach a qualified scan more often than the current baseline (50% (5/10)), because the video pre-qualifies people on problem and device.",
+      "copy": {
+        "hook": "Your desk is facing the door. Here's the 10-second fix.",
+        "caption": "Scanned my room with ChiSensor. First suggestion is free, the full guide is paid. Needs iPhone Pro (LiDAR).",
+        "call_to_action": "Scan your desk — first suggestion free"
+      },
+      "product_facts": [
+        {
+          "text": "A free first suggestion is shown before any payment",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 4,
+              "text": "Completed free scan, viewed suggestion, purchased monthly sub",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app shows a before/after ghosted preview of the new layout",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Loved the Before/After ghosting preview, shared to Instagram",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "The app gives desk-setup tips",
+          "evidence": [
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 12,
+              "text": "High engagement with desk setup optimization tips",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Users can re-scan after a change and see the score move",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "observed_behavior",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "Completed second scan (re-test), unlocked annual plan",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "unsupported_capabilities": [
+        {
+          "text": "Scanning on iPhones without LiDAR",
+          "evidence": [
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "A guaranteed score increase (one participant reported +20; it is not a promise)",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "text": "Several rooms in one pass",
+          "evidence": [
+            {
+              "session_id": "S09",
+              "participant_id": "P09",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 10,
+              "text": "Can I scan multiple rooms with one pass?",
+              "broken": false
+            }
+          ]
+        }
+      ],
+      "marketing_hypotheses": [
+        "A specific desk problem attracts higher-intent viewers than general feng shui content.",
+        "Saying 'needs iPhone Pro' in the video reduces installs that cannot scan.",
+        "Showing the real re-test score change makes the video worth saving; reach is not assumed or promised."
+      ],
+      "baselines": {
+        "budget_cap": {
+          "label": "Budget cap",
+          "value": "$400.00"
+        },
+        "qs_rate": {
+          "label": "Qualified scan ÷ first open",
+          "value": "50% (5/10)"
+        },
+        "refund_rate": {
+          "label": "Fully refunded ÷ verified purchases",
+          "value": "50% (1/2)"
+        },
+        "cash_per_scan": {
+          "label": "Cash cost per qualified scan",
+          "value": "$160.00"
+        },
+        "reach": {
+          "label": "First opens the budget buys at the observed cost",
+          "value": "≈5 first opens at $80.00 cash each"
+        }
+      },
+      "primary_metric": {
+        "name": "Qualified scan rate",
+        "numerator": "First opens from the video tracking links that reach a qualified scan (event log)",
+        "denominator": "First opens from those links (event log). Video views are never used as this denominator.",
+        "baseline": "50% (5/10) (TikTok_KOC, current data)"
+      },
+      "guardrails": [
+        {
+          "name": "Refund share",
+          "denominator": "Verified purchases from the tracked links",
+          "rule": "Not above the TikTok_KOC baseline (50% (1/2))"
+        },
+        {
+          "name": "Cash cost per qualified scan",
+          "denominator": "Qualified scans from the tracked links",
+          "rule": "Not above the TikTok_KOC baseline ($160.00)"
+        },
+        {
+          "name": "Content diagnostic (separate funnel)",
+          "denominator": "Video impressions → 3-second views → link clicks, from TikTok analytics",
+          "rule": "Reported on its own; never mixed into app-funnel denominators"
+        }
+      ],
+      "budget_cap_usd": 400.0,
+      "stop_rule": "Stop when the $400.00 cap is spent or after 14 days. Pause a creator's video if its cohort's refund share rises above 50% (1/2). If fewer than 20 tracked first opens are reached (budget reach: ≈5 first opens at $80.00 cash each), report the result as inconclusive and make no rate claims.",
+      "continue_rule": "Brief new creators with the same script only if, with at least 20 tracked first opens, qualified scan ÷ first open is above 50% (5/10), cash cost per qualified scan is at or below $160.00, and no guardrail is breached.",
+      "copy_check": {
+        "passed": true,
+        "violations": [],
+        "terms_checked": [
+          "guarantee",
+          "guaranteed",
+          "viral",
+          "go viral",
+          "million views",
+          "search volume",
+          "#1",
+          "number one",
+          "any iphone",
+          "all iphones",
+          "every iphone",
+          "multi-room",
+          "multiple rooms",
+          "whole home",
+          "scientifically proven",
+          "100%"
+        ]
+      },
+      "script": [
+        {
+          "shot": 1,
+          "seconds": "0–3",
+          "visual": "Creator at a work-from-home desk with their back to the door, glancing over their shoulder",
+          "on_screen_text": "Why does my desk feel draining?",
+          "voiceover": "My desk faced the door and I never felt focused.",
+          "evidence": [
+            {
+              "session_id": "S03",
+              "participant_id": "P03",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 4,
+              "text": "This actually explained why my WFH setup feels draining.",
+              "broken": false
+            },
+            {
+              "session_id": "S11",
+              "participant_id": "P11",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 12,
+              "text": "This helped me fix my desk facing the door issue.",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "shot": 2,
+          "seconds": "3–9",
+          "visual": "Screen recording: LiDAR scan of the same room, then the green ghosted 'after' position of the desk",
+          "on_screen_text": "Real scan · iPhone Pro with LiDAR",
+          "voiceover": "I scanned the room and it showed me where the desk should go, without buying anything.",
+          "evidence": [
+            {
+              "session_id": "S05",
+              "participant_id": "P05",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 6,
+              "text": "Seeing the green ghosting preview made me want to buy the furniture.",
+              "broken": false
+            },
+            {
+              "session_id": "S02",
+              "participant_id": "P02",
+              "field": "observed_behavior",
+              "kind": "first observation",
+              "line": 3,
+              "text": "Encountered LIDAR error on standard iPhone, dropped off",
+              "broken": false
+            }
+          ]
+        },
+        {
+          "shot": 3,
+          "seconds": "9–15",
+          "visual": "Desk moved; creator re-scans and the app's real score change is shown on screen (no number promised in advance)",
+          "on_screen_text": "First suggestion free · full guide paid",
+          "voiceover": "Moved it, re-scanned, and my score went up. Try the free suggestion first.",
+          "evidence": [
+            {
+              "session_id": "S13",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "re-test #1",
+              "line": 14,
+              "text": "I re-tested after moving my bed, score went up 20 points!",
+              "broken": false
+            },
+            {
+              "session_id": "S01",
+              "participant_id": "P01",
+              "field": "user_statements",
+              "kind": "first observation",
+              "line": 2,
+              "text": "Why do I have to pay before seeing the full report?",
+              "broken": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "experiment_budget": {
+    "total": 900.0,
+    "cap": 1500.0,
+    "days": 14,
+    "within_cap": true
+  }
+}

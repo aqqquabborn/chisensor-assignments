@@ -1,0 +1,44 @@
+{
+  "_about": "Cost and readiness parameters. Change any value and re-run; nothing in the code repeats these numbers.",
+
+  "price_usd": 9.99,
+  "_price_note": "Example price for the exercise only — not an approved ChiSensor price.",
+  "commission_rate": 0.15,
+  "_commission_note": "Store commission on kept sales; reversed on a full refund. Tax and FX ignored.",
+
+  "labor_rate_usd_per_hour": 25,
+  "production_hours_by_channel": {
+    "_source": "ASSUMPTION — production hours are not in the input data. These placeholders are shown as assumptions in the report; replace them with real timesheet hours.",
+    "ASA_Brand": 2,
+    "ASA_Category": 3,
+    "TikTok_KOC": 10,
+    "Pinterest_SEO": 6,
+    "Reddit_Community": 4
+  },
+
+  "inference_calls": 100,
+  "inference_cost_per_call_usd": 0.08,
+  "shared_tools_usd": 12,
+
+  "next_trial": {
+    "budget_cap_usd": 1500,
+    "days": 14,
+    "_note": "Upper limit for the next 14-day experiments, not a target to spend."
+  },
+
+  "cutoff": null,
+  "_cutoff_note": "null = latest event timestamp. Events after the cutoff are ignored (a later refund is not 'known').",
+
+  "readiness": {
+    "commercial_delivery_ready": false,
+    "_note": "Given readiness flag. While false, experiment cards stay BLOCKED (draft only). Even when true, cards stay BLOCKED if the data still shows undelivered or pending payments."
+  },
+
+  "low_sample_threshold": 30,
+
+  "forbidden_claims": [
+    "guarantee", "guaranteed", "viral", "go viral", "million views", "search volume",
+    "#1", "number one", "any iphone", "all iphones", "every iphone", "multi-room", "multiple rooms",
+    "whole home", "scientifically proven", "100%"
+  ]
+}
